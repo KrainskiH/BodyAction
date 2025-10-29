@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
-using AlphaFit.Models;
+using BodyAction.Models;
 
-namespace AlphaFit.Data;
+namespace BodyAction.Data;
 
 public class AppDbContext : DbContext
 {
@@ -12,6 +12,7 @@ public class AppDbContext : DbContext
     public DbSet<Treino> Treinos => Set<Treino>();
     public DbSet<Usuario> Usuarios => Set<Usuario>();
     public DbSet<Exercicio> Exercicios => Set<Exercicio>(); // 👈 novo
+    public DbSet<CadastroPlano> CadastroPlanos { get; set; }
 
     protected override void OnModelCreating(ModelBuilder mb)
     {

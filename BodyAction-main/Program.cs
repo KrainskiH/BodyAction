@@ -1,5 +1,5 @@
-using AlphaFit.Models;
-using AlphaFit.Data;
+using BodyAction.Models;
+using BodyAction.Data;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);

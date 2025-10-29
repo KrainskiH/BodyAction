@@ -1,1 +1,11 @@
-{"Version":1,"Hash":"3rBeCIjTB4xC0Udh8uXvqwJtPesyodeK4id2a3DnaJQ=","Source":"Alphafit","BasePath":"_content/Alphafit","Mode":"Default","ManifestType":"Build","ReferencedProjectsConfiguration":[],"DiscoveryPatterns":[],"Assets":[],"Endpoints":[]}
+{
+  "Version": 1,
+  "Hash": "ieG+MrIpLZDIO2cAH/TPNoAkUi5trtm2DdSRBZy9mAk=",
+  "Source": "BodyAction",
+  "BasePath": "_content/BodyAction",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
