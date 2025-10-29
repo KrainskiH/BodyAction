@@ -1,0 +1,92 @@
+    #map {
+        width: 100%;
+        height: 400px;
+        border-radius: 12px;
+        margin-top: 20px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.25);}
+  #resultado {
+    margin-top: 15px;
+    color: #fff;
+    font-size: 18px;
+    text-align: center;
+  }
+  .mapa h2{
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 30px;
+    color: #F5F7FA;
+    font-family:"BBH Sans Hegarty", sans-serif;
+    font-weight: 400;
+    font-style: normal;}
+/* Preloader full screen */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    transition: opacity 0.1s ease, visibility 0.1s ease;
+    background: linear-gradient(-45deg, #1d0000, #740000, #1d0000, #740000);
+    background-size: 400% 400%;
+    animation: gradientBG 8s ease infinite;
+  }
+  
+  /* Logo acima do loader */
+  .loader-logo {
+    width: 100px;
+    height: auto;
+    margin-bottom: 30px;
+    filter: drop-shadow(0 0 15px #000000); /* brilho vermelho bordô */
+  }
+  
+  /* Círculo girando */
+  .loader {
+    width: 60px;
+    height: 60px;
+    border: 5px solid rgba(255, 255, 255, 0.2);
+    border-top: 5px solid #B22222; /* vermelho bordô */
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 20px;
+  }
+  
+  /* Nome da academia */
+  .loader-text {
+    color: #B22222; /* vermelho bordô */
+    font-family: "BBH Sans Hegarty", sans-serif;
+    font-size: 28px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-shadow: 0 0 15px #B22222, 0 0 25px #4B0000; /* bordô + sombra escura */
+    animation: fadeText 1.5s ease-in-out infinite alternate;
+  }
+  
+  /* Gira o círculo */
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+  
+  /* Animação do texto */
+  @keyframes fadeText {
+    from { opacity: 0.6; }
+    to { opacity: 1; }
+  }
+  
+  /* Fundo com gradiente animado */
+  @keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  /* Esconde preloader */
+  #preloader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+  }
+  

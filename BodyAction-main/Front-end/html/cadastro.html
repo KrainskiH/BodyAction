@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlphaFit | Cadastre-se</title>
+
+<link rel="stylesheet" href="pages/contato.css">
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Asimovian&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="../img/apple-touch-icon.png">
+<link rel="stylesheet" href="../css/layout/footer.css">
+
+</head>
+<body>
+
+  <header> 
+    <div class="logo">
+      <h1 id="TITULO"> | B.A</h1>
+      <h1> Body <br>Action</h1>
+      <p id="DRAMA">Formulário de cadastro</p>
+    </div>
+      <!-- Menu fixo desktop -->
+  <nav class="main-nav">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="services.html">Serviços</a></li>
+      <li><a href="planos.html">Planos</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+  </nav>
+
+  <!-- Botão mobile -->
+  <button id="menu-toggle">☰</button>
+</header>
+<!-- Menu lateral mobile -->
+<nav id="side-menu">
+  <ul>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="sobre.html">Sobre</a></li>
+    <li><a href="services.html">Serviços</a></li>
+    <li><a href="planos.html">Planos</a></li>
+    <li><a href="contato.html">Contato</a></li>
+  </ul>
+</nav>
+<div id="overlay"></div>
+
+  <section id="cadastro">
+    <form id="form-cadastro">
+      <fieldset>
+        <h2>Agora, vamos criar seu cadastro na B.A:</h2>
+
+        <label for="nome">Nome completo:</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo." required>
+
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" name="cpf" placeholder="Digite o seu CPF." required>
+        <small id="cpf-erro" style="color: red; display: none;">CPF inválido: digite todos os números.</small>
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" placeholder="Digite o seu email." required>
+        <small id="email-erro" style="color: red; display: none;">Email incompleto: digite seu email corretamente.</small>
+        
+        <label for="DataNascimento">Data de Nascimento:</label>
+        <input type="date" id="DataNascimento" name="DataNascimento" placeholder="Selecione a sua data de nascimento." required>
+
+        <label for="telefone">DDD + Celular:</label>
+        <input type="text" id="telefone" name="telefone" placeholder="(99) 99999-9999" required>
+        <small id="telefone-erro" style="color: red; display: none;">Telefone inválido: digite todos os números.</small>
+
+        <label for="plano">Plano:</label>
+        <select id="plano" name="plano" required>
+          <option value="">Confirme seu plano</option>
+          <option value="Mensal">Mensal</option>
+          <option value="Semestral">Semestral</option>
+          <option value="Anual">Anual</option>
+        </select>
+
+        <button type="submit" class="botao-assinar">Cadastrar</button>
+      </fieldset>
+    </form>
+  </section>
+  <footer>
+    <p>&copy; 2025 B.A|BodyAction. Todos os direitos reservados.</p>
+  </footer>
+<script src="../js/mascaras.js"></script>
+<script src="../js/footer.js"></script>
+
+</body>
+</html>

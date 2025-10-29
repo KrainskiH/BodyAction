@@ -1,0 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=BBH+Sans+Hegarty&family=Cabin:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+body {
+  background: #0B0C10;
+  font-family: 'Montserrat', sans-serif;
+  color: #f5f5f5;
+  line-height: 1.6;
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AlphaFit | Alunos</title>
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/layout/footer.css">
+
+</head>
+<body>
+  <!-- Header simples -->
+  <header>
+    <h1>Alunos cadastrados</h1>
+  </header>
+
+  <!-- Container -->
+  <main>
+    <section class="sobre">
+      <h2>Lista de alunos</h2>
+
+      <table id="tabelaAlunos">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Plano</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Os alunos virão da API -->
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <!-- Script que consome a API -->
+  <script>
+    async function carregarAlunos() {
+      try {
+        const resp = await fetch("http://localhost:5000/alunos");
+        const alunos = await resp.json();
+
+        const tbody = document.querySelector("#tabelaAlunos tbody");
+        tbody.innerHTML = "";
+
+        alunos.forEach(a => {
+          const tr = document.createElement("tr");
+          tr.innerHTML = `
+            <td>${a.nome}</td>
+            <td>${a.email}</td>
+            <td>${a.planoAtual ?? "Nenhum"}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      } catch (err) {
+        console.error("Erro ao carregar alunos:", err);
+      }
+    }
+
+    carregarAlunos();
+  </script>
+  <script src="../js/footer.js"></script>
+
+</body>
+</html>

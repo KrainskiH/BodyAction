@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Body Action | Transforme seu corpo e sua mente</title>
+  <link rel="stylesheet" href="../css/main.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Asimovian&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Asimovian&family=BBH+Sans+Bartle&family=Bebas+Neue&display=swap');
+  </style>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=BBH+Sans+Hegarty&family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" class="logoo" href="../img/bodyaction_logo.png">
+
+  <link rel="stylesheet" href="../css/layout/footer.css">
+
+</head>
+<body>
+  <div id="preloader">
+    <img src="../img/bodyaction_logo.png" alt="Logo BodyAction" class="loader-logo">
+    <div class="loader"></div>
+    <h1 class="loader-text">BODYACTION</h1>
+  </div>
+  <header>
+    <div class="logo">
+      <h1 id="TITULO"> | B.A</h1>
+      <h1> Body <br>Action</h1>
+      <p id="DRAMA">O seu melhor jeito de malhar</p>
+    </div>
+
+    <!-- Menu fixo desktop -->
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+        <li><a href="services.html">Serviços</a></li>
+        <li><a href="planos.html">Planos</a></li>
+        <li><a href="contato.html">Contato</a></li>
+      </ul>
+    </nav>
+
+    <!-- Botão mobile -->
+    <button id="menu-toggle">☰</button>
+  </header>
+  <!-- Menu lateral mobile -->
+  <nav id="side-menu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="services.html">Serviços</a></li>
+      <li><a href="planos.html">Planos</a></li>
+      <li><a href="contato.html">Contato</a></li>
+    </ul>
+  </nav>
+  <div id="overlay"></div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h2>Transforme seu corpo e sua mente</h2>
+    <p>Treinos inteligentes, ambiente premium e tudo o que você precisa para alcançar seus objetivos fitness.
+        <br>Conheça nossos planos! <br>
+    <a href="planos.html" class="btn1">Comece Agora</a>
+  </section>
+
+  <section class="sobre-section">
+    <div class="sobre">
+      <h2>Bem-vindos a B.A | Body Action</h2>
+      <p>Sua jornada fitness começa aqui! Na B.A, oferecemos uma experiência de academia premium, combinando tecnologia de ponta, treinos personalizados e um ambiente sofisticado para você alcançar seus objetivos com conforto e exclusividade.</p>
+    </div>
+
+    <div class="carousel">
+      <button class="prev">‹</button>
+      <div class="carousel-track">
+        <div class="cardcarrossel"><img src="../img/FrenteAcademia.jpg" alt="FrenteAcademia"></div>
+        <div class="cardcarrossel"><img src="../img/Cia-Athletica-Nacional-Musculacao-Sao-Paulo-Autores-Grupo-S2-Marketing-Freepik.webp" alt="Academia 1"></div>
+        <div class="cardcarrossel"><img src="../img/Uribe Schwarzkopf - uSpots -piscina.webp" alt="Academia 2"></div>
+        <div class="cardcarrossel"><img src="../img/sala-de-exercicios-e-piscina-interna.jpeg" alt="Academia 3"></div>
+        <div class="cardcarrossel"><img src="../img/massoterapia.jpeg" alt="Academia 4"></div>
+      </div>
+      <button class="next">›</button>
+    </div>
+  </section>
+
+  <!-- INSTRUTORES -->
+  <section class="cards">
+    <h2>Conheça Nossos Instrutores</h2>
+    <div class="card-container">
+      <div class="cardinstrutor">
+        <img src="/Front-end/img/instrutor1.jfif" alt="Instrutor Lucas Silva">
+        <h3>Lucas Silva</h3>
+        <p>Especialista em musculação e treinos funcionais, focado na evolução personalizada de cada aluno.</p>
+      </div>
+      <div class="cardinstrutor">
+        <img src="/Front-end/img/instrutor2.webp" alt="Instrutora Ana Costa">
+        <h3>Ana Costa</h3>
+        <p>Instrutora de aulas coletivas e HIIT, motivadora e dedicada ao bem-estar de todos.</p>
+      </div>
+      <div class="cardinstrutor">
+        <img src="/Front-end/img/instrutor3.jfif" alt="Instrutor Rafael Mendes">
+        <h3>Rafael Mendes</h3>
+        <p>Treinamento funcional e personal trainer para quem busca resultados rápidos e seguros.</p>
+      </div>
+    </div>
+  </section>
+  <section class="mapa">
+  <h2>Encontre as nossas outras unidades!</h2>
+  <div id="map"></div>
+  <p id="resultado"></p>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  </section>
+
+
+  <section class="cta">
+    <h2>Pronto para mudar sua vida?</h2>
+    <p>Venha para a B.A e descubra a experiência premium que vai transformar seus treinos e seu bem-estar.</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2025 B.A|BodyAction. Todos os direitos reservados.</p>
+  </footer>
+  <script src="../js/java.js" defer></script>
+  <script src="../js/main.js"></script>
+  <script src="../js/footer.js"></script>
+
+</body>
+</html>

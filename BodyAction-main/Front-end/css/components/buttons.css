@@ -1,0 +1,40 @@
+.btn {
+    font-size: 25px;
+    text-decoration: none;
+    font-family: "Bebas Neue", sans-serif;
+    display: inline-block;
+    padding: 14px 28px;
+    background: #000000;
+    color: #ffffff;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    font-weight: 700;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;}
+
+  .btn:hover {
+    background: rgb(255, 0, 0);
+    color: #F5F7FA;}
+
+  .btn1 {
+    font-size: 25px;
+    text-decoration: none;
+    font-family: "Bebas Neue", sans-serif;
+    margin-top: 18px;
+    display: inline-block;
+    padding: 14px 28px;
+    background: #000000;
+    color: #ffffff;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    font-weight: 700;
+    border-radius: 8px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.5s;}
+
+  .btn1:hover {
+    background: rgb(255, 0, 0);}
+
+
+
