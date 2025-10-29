@@ -1,5 +1,4 @@
 
-
   window.addEventListener('scroll', () => {
     const header = document.querySelector('header');
     const scrollY = window.scrollY;
@@ -112,26 +111,4 @@ const preloader = document.getElementById("preloader");
 window.addEventListener("load", () => {
   preloader.classList.add("fade-out");
   setTimeout(() => preloader.style.display = "none", 600);
-});
-
-// Evento global para todos os links
-document.body.addEventListener("click", e => {
-  const link = e.target.closest("a[href]");
-  if (link) {
-    const href = link.getAttribute("href");
-
-    // Ignora links internos (#), mailto ou vazios
-    if (!href.startsWith("#") && !href.startsWith("mailto:") && href !== "") {
-      e.preventDefault();
-
-      // Mostra preloader antes de navegar
-      preloader.style.display = "flex";
-      preloader.classList.remove("fade-out");
-
-      // Navega após o delay
-      setTimeout(() => {
-        window.location.href = href;
-      }, 400); // 0.4s de delay
-    }
-  }
 });

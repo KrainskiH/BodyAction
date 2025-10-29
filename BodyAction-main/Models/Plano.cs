@@ -1,5 +1,4 @@
-namespace AlphaFit.Models;
-
+namespace BodyAction.Models;
 // Enum dos planos + extensão com preço mensal (ajuda nas estatísticas)
 public enum Plano
 {

@@ -1,5 +1,4 @@
-namespace AlphaFit.Models;
-
+namespace BodyAction.Models;
 public class Instrutor
 {
     public Guid Id { get; set; } = Guid.NewGuid();

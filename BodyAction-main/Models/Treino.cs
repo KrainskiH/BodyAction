@@ -1,5 +1,4 @@
-namespace AlphaFit.Models;
-
+namespace BodyAction.Models;
 public enum NivelTreino { Iniciante, Intermediario, Avancado }
 
 public class Treino
