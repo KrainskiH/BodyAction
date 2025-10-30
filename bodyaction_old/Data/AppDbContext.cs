@@ -1,34 +1,18 @@
 using Microsoft.EntityFrameworkCore;
 using BodyAction.Models;
 
-namespace BodyAction.Data;
-
-public class AppDbContext : DbContext
+namespace BodyAction.Data
 {
-    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
-
-    public DbSet<Aluno> Alunos => Set<Aluno>();
-    public DbSet<Instrutor> Instrutores => Set<Instrutor>();
-    public DbSet<Treino> Treinos => Set<Treino>();
-    public DbSet<Usuario> Usuarios => Set<Usuario>();
-    public DbSet<Exercicio> Exercicios => Set<Exercicio>(); // 👈 novo
-    public DbSet<CadastroPlano> CadastroPlanos { get; set; }
-
-    protected override void OnModelCreating(ModelBuilder mb)
+    public class AppDbContext : DbContext
     {
-        // Treino -> Instrutor (muitos Treinos para 1 Instrutor)
-        mb.Entity<Treino>()
-          .HasOne(t => t.Responsavel)
-          .WithMany() // se tiver coleção de treinos no Instrutor, troque por .WithMany(i => i.Treinos)
-          .HasForeignKey(t => t.InstrutorId)
-          .OnDelete(DeleteBehavior.Restrict);
+        public AppDbContext(DbContextOptions<AppDbContext> options)
+            : base(options)
+        {
+        }
 
-        // Treino (1) -> (N) Exercicios
-        mb.Entity<Exercicio>()
-          .HasOne(e => e.Treino)
-          .WithMany(t => t.Exercicios)
-          .HasForeignKey(e => e.TreinoId);
-
-        base.OnModelCreating(mb);
+        // Apenas as entidades que realmente existem:
+        public DbSet<Cadastro> Cadastros => Set<Cadastro>();
+        public DbSet<Contato> Contatos => Set<Contato>();
+        public DbSet<Plano> Planos => Set<Plano>();
     }
 }

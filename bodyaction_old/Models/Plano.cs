@@ -1,19 +1,10 @@
-namespace BodyAction.Models;
-// Enum dos planos + extensão com preço mensal (ajuda nas estatísticas)
-public enum Plano
+namespace BodyAction.Models
 {
-    Basico = 1,
-    Plus = 2,
-    Premium = 3
-}
-
-public static class PlanoPrecoExtensions
-{
-    public static decimal PrecoMensal(this Plano plano) => plano switch
+    public class Plano
     {
-        Plano.Basico  => 79.90m,
-        Plano.Plus    => 109.90m,
-        Plano.Premium => 149.90m,
-        _ => 0m
-    };
+        public int Id { get; set; }               // Chave primária
+        public string Nome { get; set; } = string.Empty;  // Nome do plano (ex: "Mensal", "Anual")
+        public decimal Preco { get; set; }                 // Valor do plano
+        public int DuracaoMeses { get; set; }              // Quantos meses dura o plano
+    }
 }
