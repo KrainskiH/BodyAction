@@ -2564,24 +2564,32 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\steph\\.nuget\\packages\\": {}
+    "C:\\Users\\HENRIQUEKRAINSKISANT\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\steph\\Documents\\BodyAction\\BodyAction-main\\BodyAction.csproj",
+      "projectUniqueName": "C:\\Users\\HENRIQUEKRAINSKISANT\\ba\\BodyAction\\BodyAction-main\\BodyAction.csproj",
       "projectName": "BodyAction",
-      "projectPath": "C:\\Users\\steph\\Documents\\BodyAction\\BodyAction-main\\BodyAction.csproj",
-      "packagesPath": "C:\\Users\\steph\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\steph\\Documents\\BodyAction\\BodyAction-main\\obj\\",
+      "projectPath": "C:\\Users\\HENRIQUEKRAINSKISANT\\ba\\BodyAction\\BodyAction-main\\BodyAction.csproj",
+      "packagesPath": "C:\\Users\\HENRIQUEKRAINSKISANT\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\HENRIQUEKRAINSKISANT\\ba\\BodyAction\\BodyAction-main\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\steph\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\HENRIQUEKRAINSKISANT\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2639,7 +2647,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.415/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.204/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

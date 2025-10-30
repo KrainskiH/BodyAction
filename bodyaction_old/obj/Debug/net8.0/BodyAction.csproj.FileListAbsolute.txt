@@ -120,3 +120,13 @@ C:\Users\steph\Documents\BodyAction\BodyAction-main\obj\Debug\net8.0\refint\Body
 C:\Users\steph\Documents\BodyAction\BodyAction-main\obj\Debug\net8.0\BodyAction.pdb
 C:\Users\steph\Documents\BodyAction\BodyAction-main\obj\Debug\net8.0\BodyAction.genruntimeconfig.cache
 C:\Users\steph\Documents\BodyAction\BodyAction-main\obj\Debug\net8.0\ref\BodyAction.dll
+C:\Users\HENRIQUEKRAINSKISANT\ba\BodyAction\BodyAction-main\obj\Debug\net8.0\BodyAction.csproj.AssemblyReference.cache
+C:\Users\HENRIQUEKRAINSKISANT\ba\BodyAction\BodyAction-main\obj\Debug\net8.0\BodyAction.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\HENRIQUEKRAINSKISANT\ba\BodyAction\BodyAction-main\obj\Debug\net8.0\BodyAction.AssemblyInfoInputs.cache
+C:\Users\HENRIQUEKRAINSKISANT\ba\BodyAction\BodyAction-main\obj\Debug\net8.0\BodyAction.AssemblyInfo.cs
+C:\Users\HENRIQUEKRAINSKISANT\ba\BodyAction\BodyAction-main\obj\Debug\net8.0\BodyAction.csproj.CoreCompileInputs.cache
+C:\Users\HENRIQUEKRAINSKISANT\ba\BodyAction\BodyAction-main\obj\Debug\net8.0\BodyAction.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\HENRIQUEKRAINSKISANT\ba\BodyAction\BodyAction-main\obj\Debug\net8.0\BodyAction.sourcelink.json
+C:\Users\HENRIQUEKRAINSKISANT\ba\BodyAction\BodyAction-main\obj\Debug\net8.0\BodyAction.dll
+C:\Users\HENRIQUEKRAINSKISANT\ba\BodyAction\BodyAction-main\obj\Debug\net8.0\refint\BodyAction.dll
+C:\Users\HENRIQUEKRAINSKISANT\ba\BodyAction\BodyAction-main\obj\Debug\net8.0\BodyAction.pdb
