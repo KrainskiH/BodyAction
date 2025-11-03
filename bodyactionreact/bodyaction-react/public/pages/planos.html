@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BodyAction | Planos</title>
+  <link rel="icon" type="image/png" href="/assets/img/bodyaction_logo.png">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/layout/header.css">
+
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Asimovian&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Asimovian&family=BBH+Sans+Bartle&family=Bebas+Neue&display=swap');
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Asimovian&family=BBH+Sans+Hegarty&family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="preloader">
+  <img src="/assets/img/bodyaction_logo.png" alt="Body Action" class="loader-logo">
+    <div class="loader"></div>
+    <div class="loader-text">CARREGANDO</div>
+  </div>
+  <!-- Header incluído dinamicamente -->
+  <div id="header-slot"></div>
+  <main>
+    <section class="planos"> 
+      <h1>Escolha seu Plano</h1>
+      <div class="container-planos">
+        <div class="plano">
+          <h3>Plano Mensal</h3>
+          <p class="legenda">Perfeito para começar agora:</p>
+          <p class="preco">R$ 179,90 / mês</p>
+          <ul>      
+            <li data-disponivel="true">Acesso ilimitado a musculação</li>
+            <li data-disponivel="false"><span>Acesso ilimitado a todas as modalidades</span></li>
+            <li data-disponivel="false"><span>Acesso ilimitado a todas as unidades B.A</span></li>
+            <li data-disponivel="true">Personais disponíveis na unidade</li>
+            <li data-disponivel="false"><span>Acesso a sauna e hidromassagem</span></li>
+            <li data-disponivel="true">1 avaliação física inicial</li>
+            <li data-disponivel="true">B.A App</li>
+          </ul>
+          <a href="/pages/cadastro.html" class="btn">Assinar</a>
+        </div>
+        <div class="plano destaque">
+          <h3>Plano Trimestral</h3>
+          <p class="legenda">Melhor custo-benefício:</p>
+          <p class="preco">R$ 149,90 / mês</p>
+          <ul>
+            <li data-disponivel="true">Acesso ilimitado a musculação</li>
+            <li data-disponivel="true">Acesso ilimitado a todas as modalidades</li>
+            <li data-disponivel="false"><span>Acesso ilimitado a todas as unidades B.A</span></li>
+            <li data-disponivel="true">Personais disponíveis na unidade</li>
+            <li data-disponivel="true">Acesso a sauna e hidromassagem</li>
+            <li data-disponivel="true">2 avaliações físicas</li>
+            <li data-disponivel="true">B.A App com treino personalizado</li>
+          </ul>
+          <a href="/pages/cadastro.html" class="btn">Assinar</a>
+        </div>
+        <div class="plano">
+          <h3>Plano Anual</h3>
+          <p class="legenda">Máximo resultado:</p>
+          <p class="preco">R$ 119,90 / mês</p>
+          <ul>
+            <li data-disponivel="true">Acesso ilimitado a musculação</li>
+            <li data-disponivel="true">Acesso ilimitado a todas as modalidades</li>
+            <li data-disponivel="true">Acesso ilimitado a todas as unidades B.A</li>
+            <li data-disponivel="true">Personais disponíveis</li>
+            <li data-disponivel="true">Acesso a sauna, hidro e massagem</li>
+            <li data-disponivel="true">4 avaliações físicas anuais</li>
+            <li data-disponivel="true">B.A App premium</li>
+            <li data-disponivel="true">Sem taxa de matrícula</li>
+          </ul>
+          <a href="/pages/cadastro.html" class="btn">Assinar</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div id="footer-slot"></div>
+  <script src="/assets/js/header.js"></script>
+  <script src="/assets/js/footer.js"></script>
+  <script src="/assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+/* Base */
+@import url('./base/reset.css');
+@import url('./base/variables.css');
+@import url('./base/typography.css');
+
+/* Layout */
+@import url('./layout/header.css');
+@import url('./layout/footer.css');
+
+/* Components */
+@import url('./components/preloader.css');
+@import url('./components/map.css');
+
+/* Pages */
+@import url('./pages/contato.css');
+@import url('./pages/sobre.css');
+@import url('./pages/planos.css');
+@import url('./pages/services.css');

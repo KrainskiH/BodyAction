@@ -1,0 +1,23 @@
+/* ===== VARIÁVEIS GLOBAIS ===== */
+:root {
+  /* Colors */
+  --primary: #E0242A;
+  --primary-hover: #ff3a41;
+  --text: #E9EEF4;
+  --bg: #0C0E12;
+  --bg-card: #101011;
+  --bg-input: #0f0f10;
+  
+  /* Radius */
+  --radius-lg: 14px;
+  --radius-md: 12px;
+  --radius-sm: 10px;
+  
+  /* Spacing */
+  --space-xs: 10px;
+  --space-sm: 12px;
+  --space-md: 14px;
+  --space-lg: 18px;
+  --space-xl: 24px;
+  --space-2xl: 36px;
+}

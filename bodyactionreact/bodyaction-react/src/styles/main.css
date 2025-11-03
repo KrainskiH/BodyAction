@@ -1,0 +1,23 @@
+/* Base */
+@import url('./base/reset.css');
+@import url('./base/fonts.css');
+@import url('./base/variables.css');
+
+/* Layout */
+@import url('./layout/header.css');
+@import url('./layout/hero.css');
+
+/* Components */
+@import url('./components/buttons.css');
+@import url('./components/cards.css');
+@import url('./components/tables.css');
+
+/* Pages */
+@import url('./pages/sobre.css');
+@import url('./pages/services.css');
+@import url('./pages/plano.css');
+@import url('./pages/cadastro.css');
+@import url('./pages/contato.css');
+
+/* Footer — precisa vir por último */
+@import url('./layout/footer.css');
