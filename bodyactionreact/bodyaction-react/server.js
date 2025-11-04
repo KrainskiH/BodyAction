@@ -1,13 +1,37 @@
 const express = require('express');
 const path = require('path');
 const helmet = require('helmet');
+const { createProxyMiddleware } = require('http-proxy-middleware');
 
 const app = express();
 const port = process.env.PORT || 5000;
 const host = process.env.HOST || '127.0.0.1'; // por padrão, somente máquina local
+const apiPort = process.env.API_PORT || 5001; // porta da API C#
 
-// Segurança básica com headers
-app.use(helmet());
+// Segurança básica com headers (relaxar CSP para permitir API)
+app.use(helmet({
+  contentSecurityPolicy: false, // Desabilitar CSP para permitir requests à API
+}));
+
+// Proxy para API C# - todas as rotas /api/* vão para http://localhost:5001
+app.use('/api', createProxyMiddleware({
+  target: `http://localhost:${apiPort}`,
+  changeOrigin: true,
+  pathRewrite: {
+    '^/api': '', // remove /api do caminho ao encaminhar para a API
+  },
+  onProxyReq: (proxyReq, req, res) => {
+    console.log(`[Proxy] ${req.method} ${req.url} -> http://localhost:${apiPort}${req.url.replace('/api', '')}`);
+  },
+  onError: (err, req, res) => {
+    console.error('[Proxy Error]', err.message);
+    res.status(502).json({ 
+      error: 'API C# não está disponível',
+      message: 'Certifique-se que a API está rodando em http://localhost:' + apiPort,
+      hint: 'Execute: dotnet run --urls http://localhost:' + apiPort
+    });
+  }
+}));
 
 // Serve specific mock API endpoints from build/api if present
 app.get('/api/produtos', (req, res) => {
@@ -30,10 +54,21 @@ app.get('*', (req, res) => {
 });
 
 app.listen(port, host, () => {
-  console.log(`BodyAction server escutando em http://${host}:${port}`);
+  console.log(`\n========================================`);
+  console.log(`  BodyAction - Servidor Unificado`);
+  console.log(`========================================`);
+  console.log(`  Frontend: http://${host}:${port}`);
+  console.log(`  API Proxy: http://${host}:${port}/api/*`);
+  console.log(`  -> Encaminha para: http://localhost:${apiPort}`);
+  console.log(`========================================\n`);
+  
   if (host === '0.0.0.0') {
     console.log(`Disponível na rede local via http://<SEU_IP_LOCAL>:${port}`);
   } else {
-    console.log('Apenas acessível localmente (localhost). Defina HOST=0.0.0.0 para permitir na rede.');
+    console.log('Apenas acessível localmente (localhost).');
+    console.log('Defina HOST=0.0.0.0 para permitir acesso na rede.\n');
   }
+  
+  console.log('⚠️  IMPORTANTE: Certifique-se que a API C# está rodando:');
+  console.log(`   dotnet run --urls http://localhost:${apiPort}\n`);
 });
