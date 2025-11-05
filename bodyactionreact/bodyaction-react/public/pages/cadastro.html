@@ -5,8 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AlphaFit | Cadastre-se</title>
 
-<link rel="stylesheet" href="../css/main.css">
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/img/bodyaction_logo.png">
 
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/layout/header.css">
+
+   <!-- Fonts -->
+   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Asimovian&family=Bebas+Neue&display=swap" rel="stylesheet">
@@ -14,49 +21,14 @@
   <style>
   @import url('https://fonts.googleapis.com/css2?family=Asimovian&family=BBH+Sans+Bartle&family=Bebas+Neue&display=swap');
   </style>
-
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=BBH+Sans+Hegarty&family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
-
-  <link rel="icon" type="image/png" class="logoo" href="../img/bodyaction_logo.png">
-
-  <link rel="stylesheet" href="../css/layout/footer.css">
+  <link href="https://fonts.googleapis.com/css2?family=Asimovian&family=BBH+Sans+Hegarty&family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 
 </head>
 <body>
-
-  <header> 
-    <div class="logo">
-      <h1 id="TITULO"> | B.A</h1>
-      <h1> Body <br>Action</h1>
-      <p id="DRAMA">venha ser um BodyFit ⇊</p>
-    </div>
-      <!-- Menu fixo desktop -->
-  <nav class="main-nav">
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="sobre.html">Sobre</a></li>
-      <li><a href="services.html">Serviços</a></li>
-      <li><a href="planos.html">Planos</a></li>
-      <li><a href="contato.html">Contato</a></li>
-    </ul>
-  </nav>
-
-  <!-- Botão mobile -->
-  <button id="menu-toggle">☰</button>
-</header>
-<!-- Menu lateral mobile -->
-<nav id="side-menu">
-  <ul>
-    <li><a href="index.html">Home</a></li>
-    <li><a href="sobre.html">Sobre</a></li>
-    <li><a href="services.html">Serviços</a></li>
-    <li><a href="planos.html">Planos</a></li>
-    <li><a href="contato.html">Contato</a></li>
-  </ul>
-</nav>
-<div id="overlay"></div>
+ <!-- Header incluído dinamicamente -->
+  <div id="header-slot"></div>
 
   <section id="cadastro">
     <form id="form-cadastro">
@@ -94,11 +66,14 @@
     </form>
   </section>
 
-  <section><br><br></section>
+ <!-- Footer será injetado aqui -->
+  <div id="footer-slot"></div>
 
-<script src="../js/mascaras.js"></script>
-<script src="../js/footer.js"></script>
-<script src="../js/main.js"></script>
+  <!-- Scripts -->
+  <script src="/assets/js/header.js"></script>
+  <script src="/assets/js/footer.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/animations.js"></script>
 
 </body>
 </html>
