@@ -133,3 +133,96 @@ if (preloader) {
     setTimeout(() => preloader.style.display = "none", 600);
   });
 }
+
+// ====== Welcome Gateway (overlay de abertura) ======
+(function initWelcomeGateway(){
+  try {
+    const KEY_SEEN = 'ba_gateway_seen_v1';
+    const KEY_ROLE = 'ba_user_role'; // 'aluno' | 'funcionario'
+
+    // Só mostra se ainda não foi visto
+    if (localStorage.getItem(KEY_SEEN) === '1') return;
+
+    // Cria overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'ba-gateway-overlay';
+    overlay.innerHTML = `
+      <div class="ba-gateway" role="dialog" aria-modal="true" aria-labelledby="gw-title">
+        <div class="ba-gw-header">
+          <img src="/assets/img/bodyaction_logo.png" alt="BodyAction"/>
+          <div>
+            <h2 id="gw-title" class="ba-gw-title">BEM-VINDO À BODY ACTION GYM</h2>
+            <p class="ba-gw-sub">Escolha como deseja começar sua experiência.</p>
+          </div>
+        </div>
+        <div class="ba-gw-body">
+          <div class="ba-gw-grid">
+            <div class="ba-gw-card" id="opt-aluno">
+              <h3>Sou Aluno</h3>
+              <p>Acompanhe aulas e cobranças. Se ainda não tem cadastro, crie agora.</p>
+              <div class="ba-gw-actions">
+                <a class="ba-btn primary" href="/pages/cadastro.html">Cadastrar-se</a>
+                <button class="ba-btn" type="button" data-action="aluno-dashboard">Ver minha área</button>
+              </div>
+            </div>
+            <div class="ba-gw-card" id="opt-func">
+              <h3>Sou Funcionário</h3>
+              <p>Acesso administrativo básico para gestão (em breve recursos completos).</p>
+              <div class="ba-gw-actions">
+                <button class="ba-btn" type="button" data-action="func-area">Entrar</button>
+                <a class="ba-btn" href="/pages/planos.html">Ver planos</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ba-gw-footer">
+          <div class="ba-gw-mini">Você pode mudar sua escolha depois.</div>
+          <a class="ba-btn" href="/pages/planos.html">Adquirir um plano</a>
+          <button class="ba-btn ba-gw-close" type="button" data-action="continuar">Continuar navegando</button>
+        </div>
+      </div>`;
+    document.body.appendChild(overlay);
+
+    function openGW(){ overlay.classList.add('active'); }
+    function closeGW(){ overlay.classList.remove('active'); localStorage.setItem(KEY_SEEN,'1'); }
+
+    // Ações
+    overlay.addEventListener('click', (e)=>{
+      const btn = e.target.closest('button, a');
+      if (!btn) return;
+      const action = btn.getAttribute('data-action');
+      if (action === 'continuar') { closeGW(); }
+      if (action === 'aluno-dashboard') { localStorage.setItem(KEY_ROLE,'aluno'); showAlunoDashboard(); }
+      if (action === 'func-area') { localStorage.setItem(KEY_ROLE,'funcionario'); showFuncionarioArea(); }
+    });
+
+    function showAlunoDashboard(){
+      const card = overlay.querySelector('#opt-aluno');
+      if (!card) return;
+      card.innerHTML = `
+        <h3>Minha Área — Aluno</h3>
+        <p>Aqui você encontrará suas próximas aulas e status de pagamento.</p>
+        <div class="ba-gw-actions">
+          <a class="ba-btn" href="/pages/services.html">Minhas aulas (exemplo)</a>
+          <a class="ba-btn" href="/pages/planos.html">Minhas cobranças (exemplo)</a>
+        </div>
+      `;
+    }
+
+    function showFuncionarioArea(){
+      const card = overlay.querySelector('#opt-func');
+      if (!card) return;
+      card.innerHTML = `
+        <h3>Área do Funcionário</h3>
+        <p>Acesso rápido a seções administrativas (protótipo).</p>
+        <div class="ba-gw-actions">
+          <a class="ba-btn" href="/pages/planos.html">Gerenciar Planos</a>
+          <a class="ba-btn" href="/pages/contato.html">Mensagens/Contatos</a>
+        </div>
+      `;
+    }
+
+    // Exibir ao carregar (apenas se não visto)
+    requestAnimationFrame(openGW);
+  } catch(e) { console.warn('Gateway não pôde iniciar:', e); }
+})();
