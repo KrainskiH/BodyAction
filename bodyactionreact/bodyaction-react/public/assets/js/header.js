@@ -47,6 +47,38 @@
             }
           });
         }
+
+        // Toggle do menu mobile depois da injeção
+        const menuToggle = document.getElementById('menu-toggle');
+        const sideMenu = document.getElementById('side-menu');
+        const overlay = document.getElementById('overlay');
+
+        function closeMenu() {
+          sideMenu && sideMenu.classList.remove('active');
+          overlay && overlay.classList.remove('active');
+          if (menuToggle) menuToggle.setAttribute('aria-expanded', 'false');
+        }
+
+        if (menuToggle && sideMenu && overlay) {
+          menuToggle.addEventListener('click', function() {
+            const willOpen = !sideMenu.classList.contains('active');
+            sideMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+          });
+
+          overlay.addEventListener('click', closeMenu);
+          // Fecha ao navegar
+          sideMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
+          // Fecha com ESC
+          document.addEventListener('keydown', e => { if (e.key === 'Escape') closeMenu(); });
+        }
+
+        // Animação suave de entrada dos itens do menu (desktop e mobile)
+        const desktopItems = slot.querySelectorAll('.main-nav li');
+        const mobileItems = slot.querySelectorAll('#side-menu li');
+        desktopItems.forEach((li, i) => li.style.animationDelay = `${0.05 * i}s`);
+        mobileItems.forEach((li, i) => li.style.animationDelay = `${0.04 * i}s`);
       })
       .catch(function(err) {
         console.error('Erro ao carregar o header:', err);

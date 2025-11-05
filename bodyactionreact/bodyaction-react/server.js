@@ -2,6 +2,7 @@ const express = require('express');
 const path = require('path');
 const helmet = require('helmet');
 const { createProxyMiddleware } = require('http-proxy-middleware');
+const compression = require('compression');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -12,6 +13,9 @@ const apiPort = process.env.API_PORT || 5001; // porta da API C#
 app.use(helmet({
   contentSecurityPolicy: false, // Desabilitar CSP para permitir requests à API
 }));
+
+// Compressão gzip para respostas (HTML/CSS/JS/JSON)
+app.use(compression());
 
 // Proxy para API C# - todas as rotas /api/* vão para http://localhost:5001
 app.use('/api', createProxyMiddleware({
@@ -45,8 +49,17 @@ app.get('/api/produtos', (req, res) => {
   });
 });
 
-// Serve static files from the build directory
-app.use(express.static(path.join(__dirname, 'build')));
+// Serve static files from the build directory com cache inteligente
+app.use(express.static(path.join(__dirname, 'build'), {
+  setHeaders: (res, filePath) => {
+    if (filePath.endsWith('.html')) {
+      res.setHeader('Cache-Control', 'no-cache');
+    } else {
+      // 7 dias para assets, com immutable
+      res.setHeader('Cache-Control', 'public, max-age=604800, immutable');
+    }
+  }
+}));
 
 // For SPA, serve index.html for all other routes
 app.get('*', (req, res) => {

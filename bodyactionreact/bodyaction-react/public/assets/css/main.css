@@ -3,6 +3,7 @@
 @import url('./base/variables.css');
 @import url('./base/typography.css');
 @import url('./base/animations.css');
+@import url('./base/scrollbar.css');
 
 /* Layout */
 @import url('./layout/header.css');

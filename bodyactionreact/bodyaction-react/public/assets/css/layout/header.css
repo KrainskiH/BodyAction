@@ -78,13 +78,13 @@ header:hover::after {
   opacity: 1;
   box-shadow: 0 0 15px #ff0000;}
 
-
-
 /* MENU FIXO DESKTOP */
 .main-nav ul {
   display: flex;
   list-style: none;
-  gap: 35px;}
+  gap: 35px;
+  margin: 0;
+  padding: 0;}
 
 .main-nav a {
   color: #eaeaf4;
@@ -92,7 +92,15 @@ header:hover::after {
   font-family: "Bebas Neue", sans-serif;
   font-size: 23px;
   position: relative;
-  transition: color 0.3s;}
+  transition: color 0.3s, transform 0.2s ease;}
+
+.main-nav li {
+  list-style: none;
+  position: relative;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: navFadeInUp .45s ease forwards;
+}
 
 .main-nav a::after {
   content: '';
@@ -107,6 +115,19 @@ header:hover::after {
 
 .main-nav a:hover::after {
   width: 100%;}
+
+.main-nav a:hover {
+  transform: translateY(-1px);
+}
+
+.main-nav a.ativo {
+  color: #ffffff;
+}
+.main-nav a.ativo::after {
+  width: 100%;
+}
+
+@keyframes navFadeInUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
 /* Esconder menu fixo em telas pequenas */
 @media (max-width: 1000px) {
@@ -171,10 +192,28 @@ header:hover::after {
   color: #eaeaf4;
   text-decoration: none;
   padding: 10px 20px;
-  transition: color 0.3s, transform 0.3s;
+  border-radius: 8px;
+  transition: color 0.3s, transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
   text-align: center;}
 
-#side-menu li a:hover {transform: scale(1.05);}
+#side-menu li a:hover {
+  transform: translateY(-1px) scale(1.02);
+  background: rgba(255, 0, 0, 0.08);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+}
+
+#side-menu li a.ativo {
+  background: rgba(255, 0, 0, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(255,0,0,0.35);
+}
+
+#side-menu li {
+  opacity: 0;
+  transform: translateX(10px);
+  animation: navFadeInRight .35s ease forwards;
+}
+
+@keyframes navFadeInRight { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: translateX(0); } }
 
 /* OVERLAY */
 #overlay {
