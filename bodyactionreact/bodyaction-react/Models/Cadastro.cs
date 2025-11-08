@@ -1,6 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace BodyAction.Models
 {
@@ -9,23 +10,32 @@ namespace BodyAction.Models
         [Key]
         public int Id { get; set; }
 
-        [Required, MaxLength(100)]
-        public required string Nome { get; set; }
+        [MaxLength(100)]
+        [JsonPropertyName("nome")]
+        public string Nome { get; set; } = string.Empty;
 
-        [Required, MaxLength(14)]
-        public required string Cpf { get; set; }
+        [MaxLength(14)]
+        [JsonPropertyName("cpf")]
+        public string Cpf { get; set; } = string.Empty;
 
-        [Required, EmailAddress]
-        public required string Email { get; set; }
+        [EmailAddress]
+        [JsonPropertyName("email")]
+        public string Email { get; set; } = string.Empty;
 
-        [Required, DataType(DataType.Date)]
+        [DataType(DataType.Date)]
+        [JsonPropertyName("dataNascimento")]
         public DateTime DataNascimento { get; set; }
 
-        [Required, Phone]
-        public required string Telefone { get; set; }
+        [Phone]
+        [JsonPropertyName("telefone")]
+        public string Telefone { get; set; } = string.Empty;
+
+        [MinLength(6)]
+        [JsonPropertyName("senha")]
+        public string Senha { get; set; } = string.Empty;
 
         // Ligação com o Plano escolhido
-        [Required]
+        [JsonPropertyName("planoId")]
         public int PlanoId { get; set; }
 
         [ForeignKey("PlanoId")]

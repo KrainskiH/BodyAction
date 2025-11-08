@@ -22,8 +22,10 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "build:watch": "react-scripts build --watch",
     "start:prod": "serve -s build -l 5000",
     "start:server": "node server.js",
+    "dev": "concurrently \"npm start\" \"npm run start:server\"",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -47,6 +49,7 @@
   },
   "devDependencies": {
     "@types/react": "^18.3.26",
-    "@types/react-dom": "^18.3.7"
+    "@types/react-dom": "^18.3.7",
+    "concurrently": "^9.2.1"
   }
 }

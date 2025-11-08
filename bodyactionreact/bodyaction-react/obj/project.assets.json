@@ -2564,19 +2564,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\steph\\.nuget\\packages\\": {}
+    "C:\\Users\\Pichau\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\steph\\Documents\\BodyAction\\bodyactionreact\\bodyaction-react\\BodyAction.csproj",
+      "projectUniqueName": "C:\\Users\\Pichau\\Documents\\Henrique importante Facul\\BodyAction\\BodyAction\\BodyAction\\bodyactionreact\\bodyaction-react\\BodyAction.csproj",
       "projectName": "BodyAction",
-      "projectPath": "C:\\Users\\steph\\Documents\\BodyAction\\bodyactionreact\\bodyaction-react\\BodyAction.csproj",
-      "packagesPath": "C:\\Users\\steph\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\steph\\Documents\\BodyAction\\bodyactionreact\\bodyaction-react\\obj\\",
+      "projectPath": "C:\\Users\\Pichau\\Documents\\Henrique importante Facul\\BodyAction\\BodyAction\\BodyAction\\bodyactionreact\\bodyaction-react\\BodyAction.csproj",
+      "packagesPath": "C:\\Users\\Pichau\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Pichau\\Documents\\Henrique importante Facul\\BodyAction\\BodyAction\\BodyAction\\bodyactionreact\\bodyaction-react\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\steph\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Pichau\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"

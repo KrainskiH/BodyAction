@@ -163,8 +163,37 @@ if (preloader) {
 
     console.log('Main.js Gateway: forceGW =', forceGW, 'isInternal =', isInternal, 'seenInSession =', seenInSession);
 
-    // LÓGICA SIMPLES: mostra SEMPRE, exceto se já viu nesta sessão E é navegação interna
-    const shouldShow = forceGW || !(seenInSession && isInternal);
+    // Função para verificar se usuário está logado
+    function checkUserLoggedIn() {
+        const userData = localStorage.getItem('bodyaction_user');
+        const isLoggedIn = userData !== null && userData !== 'null' && userData !== '';
+        console.log('   - userData no localStorage:', userData);
+        console.log('   - usuário está logado:', isLoggedIn);
+        return isLoggedIn;
+    }
+
+    const isUserLoggedIn = checkUserLoggedIn();
+    
+    // Verificar se está na página inicial (index) - mais rigoroso
+    const currentPath = window.location.pathname.toLowerCase();
+    const isHomePage = currentPath === '/' || 
+                       currentPath === '/index.html' || 
+                       currentPath === '/build/index.html' ||
+                       (currentPath.endsWith('/') && currentPath.split('/').length <= 2);
+
+    console.log('Main.js Gateway Debug:');
+    console.log('   - currentPath:', currentPath);
+    console.log('   - isHomePage:', isHomePage);
+    console.log('   - isUserLoggedIn:', isUserLoggedIn);
+    console.log('   - forceGW:', forceGW);
+    console.log('   - seenInSession:', seenInSession);
+    console.log('   - isInternal:', isInternal);
+
+    // LÓGICA DEFINITIVA: só mostra no home E usuário não logado E forçar OU não visto na sessão
+    const shouldShow = isHomePage && !isUserLoggedIn && (forceGW || !seenInSession);
+    
+    console.log('   - shouldShow:', shouldShow);
+    
     if (!shouldShow) return;
 
     // Cria overlay
@@ -183,17 +212,17 @@ if (preloader) {
           <div class="ba-gw-grid">
             <div class="ba-gw-card" id="opt-aluno">
               <h3>Sou Aluno</h3>
-              <p>Acompanhe aulas e cobranças. Se ainda não tem cadastro, crie agora.</p>
+              <p>Acesse sua área para acompanhar aulas e cobranças.</p>
               <div class="ba-gw-actions">
-                <a class="ba-btn primary" href="/pages/cadastro.html">Cadastrar-se</a>
-                <button class="ba-btn" type="button" data-action="aluno-dashboard">Ver minha área</button>
+                <a class="ba-btn primary" href="/pages/login.html">🔑 Fazer Login</a>
+                <a class="ba-btn" href="/pages/cadastro.html">➕ Cadastrar-se</a>
               </div>
             </div>
             <div class="ba-gw-card" id="opt-func">
               <h3>Sou Funcionário</h3>
-              <p>Acesso administrativo básico para gestão (em breve recursos completos).</p>
+              <p>Acesso administrativo para gestão da academia.</p>
               <div class="ba-gw-actions">
-                <button class="ba-btn" type="button" data-action="func-area">Entrar</button>
+                <a class="ba-btn" href="/pages/funcionario.html">🔐 Área Admin</a>
                 <a class="ba-btn" href="/pages/planos.html">Ver planos</a>
               </div>
             </div>
@@ -225,7 +254,7 @@ if (preloader) {
         localStorage.setItem(KEY_ROLE,'aluno');
         sessionStorage.setItem(KEY_SEEN,'1');
         overlay.classList.remove('active');
-        window.location.href = '/pages/aluno.html';
+        window.location.href = '/pages/conta.html';
       }
       if (action === 'func-area') {
         localStorage.setItem(KEY_ROLE,'funcionario');
@@ -249,5 +278,20 @@ if (preloader) {
 
     // Exibir ao carregar (apenas se não visto)
     requestAnimationFrame(openGW);
+
+    // Função global para esconder overlay quando usuário fizer login
+    window.hideGatewayOnLogin = function() {
+        console.log('🚪 Escondendo gateway devido ao login do usuário');
+        closeGW();
+        overlay.remove();
+    };
+
+    // Listener para mudanças no localStorage (login)
+    window.addEventListener('storage', function(e) {
+        if (e.key === 'bodyaction_user' && e.newValue) {
+            console.log('👤 Usuário fez login, escondendo gateway');
+            window.hideGatewayOnLogin();
+        }
+    });
   } catch(e) { console.warn('Gateway não pôde iniciar:', e); }
 })();

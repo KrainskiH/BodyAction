@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login SIMPLES - BodyAction</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .container { max-width: 400px; margin: 0 auto; }
+        input, button { width: 100%; padding: 10px; margin: 5px 0; }
+        button { background: #3498db; color: white; border: none; cursor: pointer; }
+        .debug { background: #f0f0f0; padding: 10px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Login SIMPLES (Sem Redirecionamentos)</h1>
+        
+        <div class="debug">
+            <h3>Debug Info:</h3>
+            <p id="debug-info"></p>
+        </div>
+        
+        <form id="simple-login">
+            <input type="text" id="user" placeholder="Nome ou Email" required>
+            <input type="password" id="pass" placeholder="Senha" required>
+            <button type="submit">Login</button>
+        </form>
+        
+        <div style="margin-top: 20px;">
+            <button onclick="clearStorage()">Limpar localStorage</button>
+            <button onclick="goToConta()">Ir para Conta</button>
+            <button onclick="goToHome()">Ir para Home</button>
+        </div>
+    </div>
+
+    <script>
+        // Debug inicial
+        function updateDebug() {
+            const storage = localStorage.getItem('bodyaction_user');
+            document.getElementById('debug-info').innerHTML = `
+                <strong>Página:</strong> ${window.location.pathname}<br>
+                <strong>localStorage:</strong> ${storage ? 'Existe' : 'Vazio'}<br>
+                <strong>Dados:</strong> ${storage || 'Nenhum'}
+            `;
+        }
+        
+        // Atualizar debug a cada segundo
+        setInterval(updateDebug, 1000);
+        updateDebug();
+        
+        // Form de login simples
+        document.getElementById('simple-login').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            console.log('🎯 Login simples submetido!');
+            
+            const user = document.getElementById('user').value;
+            const pass = document.getElementById('pass').value;
+            
+            try {
+                const response = await fetch('http://localhost:5001/api/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ 
+                        Identificador: user,
+                        Senha: pass 
+                    })
+                });
+                
+                const result = await response.json();
+                console.log('Resposta:', result);
+                
+                if (result.success) {
+                    localStorage.setItem('bodyaction_user', JSON.stringify(result.usuario));
+                    alert('✅ Login realizado! Dados salvos no localStorage.');
+                    updateDebug();
+                } else {
+                    alert('❌ Erro: ' + result.message);
+                }
+                
+            } catch (error) {
+                console.error('Erro:', error);
+                alert('❌ Erro de conexão: ' + error.message);
+            }
+        });
+        
+        function clearStorage() {
+            localStorage.clear();
+            alert('localStorage limpo!');
+            updateDebug();
+        }
+        
+        function goToConta() {
+            window.location.href = '/pages/conta.html';
+        }
+        
+        function goToHome() {
+            window.location.href = '/';
+        }
+        
+        console.log('🔍 Login simples carregado');
+    </script>
+</body>
+</html>

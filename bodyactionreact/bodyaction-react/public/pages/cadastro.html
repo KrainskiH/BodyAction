@@ -22,6 +22,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="/assets/css/main.css">
   <link rel="stylesheet" href="/assets/css/layout/header.css">
+  <link rel="stylesheet" href="/assets/css/components/user-header.css">
 
    <!-- Fonts -->
    
@@ -64,18 +65,23 @@
         <input type="text" id="telefone" name="telefone" placeholder="(99) 99999-9999" required>
         <small id="telefone-erro" style="color: red; display: none;">Telefone inválido: digite todos os números.</small>
 
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" placeholder="Digite uma senha (mínimo 6 caracteres)" required minlength="6">
+        <small id="senha-erro" style="color: red; display: none;">Senha deve ter pelo menos 6 caracteres.</small>
+
         <label for="plano">Plano:</label>
         <select id="plano" name="plano" required>
           <option value="">Confirme seu plano</option>
-          <option value="Mensal">Mensal</option>
-          <option value="Semestral">Semestral</option>
-          <option value="Anual">Anual</option>
+          <option value="1">1 mês - R$ 179,90</option>
+          <option value="2">3 meses - R$ 149,90</option>
+          <option value="3">12 meses - R$ 119,90</option>
         </select>
 
         <button type="submit" class="botao-assinar">Cadastrar</button>
       </fieldset>
     </form>
   </section>
+
 
  <!-- Footer será injetado aqui -->
   <div id="footer-slot"></div>
@@ -84,8 +90,9 @@
   <script src="/assets/js/header.js"></script>
   <script src="/assets/js/footer.js"></script>
   <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/auth.js"></script>
   <script src="/assets/js/animations.js"></script>
-  <script src="/assets/js/unificado.js"></script>
+  <script src="/assets/js/unificado-limpo.js"></script>
 
 </body>
 </html>

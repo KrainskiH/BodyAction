@@ -1,5 +1,6 @@
 import React from 'react';
 import './App.css';
+import './styles/main.css';
 import Header from './components/Header';
 import Preloader from './components/Preloader';
 import WelcomeGateway from './components/WelcomeGateway';

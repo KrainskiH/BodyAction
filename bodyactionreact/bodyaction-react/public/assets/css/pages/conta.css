@@ -1,0 +1,362 @@
+/* ===== Página de Conta - Estilos ===== */
+
+#minha-conta {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.user-welcome {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: rgb(0, 0, 0);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.user-welcome h2 {
+    margin: 0 0 20px 0;
+    font-size: 28px;
+    color: black;
+}
+
+.user-menu {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.user-menu button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.2);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-size: 14px;
+    border: 2px solid rgba(255,255,255,0.3);
+}
+
+.user-menu button:hover {
+    background: rgba(255,255,255,0.3);
+    transform: translateY(-2px);
+}
+
+#form-editar {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.form-buttons button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+#area-nao-logado {
+    max-width: 600px;
+    margin: 50px auto;
+    text-align: center;
+    padding: 40px;
+    background: #f8f9fa;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    color: black;
+}
+.login-options h2, p{
+    color: black
+}
+
+.button-group {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.button-group a {
+    padding: 15px 30px;
+    text-decoration: none;
+    color: white;
+    border-radius: 25px;
+    transition: all 0.3s;
+    font-weight: bold;
+    color: black;
+}
+
+.button-group a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* ===== Header do Usuário (Responsivo) ===== */
+.user-header-bar,
+.guest-header-bar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.user-header-bar > div,
+.guest-header-bar > div {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 768px) {
+    #minha-conta, 
+    #area-nao-logado {
+        margin: 20px;
+        padding: 20px;
+    }
+    
+    .user-welcome {
+        padding: 20px;
+    }
+    
+    .user-welcome h2 {
+        font-size: 22px;
+    }
+    
+    .user-menu {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .user-menu button {
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    .form-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .form-buttons button {
+        width: 100%;
+        max-width: 250px;
+    }
+    
+    .button-group {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .button-group a {
+        width: 100%;
+        max-width: 200px;
+        text-align: center;
+    }
+    
+    /* Header responsivo */
+    .user-header-bar > div,
+    .guest-header-bar > div {
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        gap: 15px !important;
+    }
+    
+    .user-header-bar > div > div:first-child {
+        flex-direction: column !important;
+        gap: 10px !important;
+    }
+    
+    .user-header-bar span,
+    .guest-header-bar span {
+        font-size: 16px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .user-welcome h2 {
+        font-size: 18px;
+    }
+    
+    .user-menu button,
+    .form-buttons button {
+        font-size: 12px;
+        padding: 10px 15px;
+    }
+    
+    #form-editar {
+        padding: 20px;
+    }
+    
+    /* Header mobile */
+    .user-header-bar,
+    .guest-header-bar {
+        padding: 10px 15px !important;
+    }
+    
+    .user-header-bar > div > div,
+    .guest-header-bar > div > div {
+        flex-direction: column !important;
+        gap: 8px !important;
+    }
+    
+    .user-header-bar a,
+    .user-header-bar button,
+    .guest-header-bar a {
+        padding: 6px 12px !important;
+        font-size: 12px !important;
+    }
+    
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .dashboard-card {
+        padding: 1rem;
+    }
+    
+    .beneficios-list {
+        grid-template-columns: 1fr;
+    }
+    
+    .dashboard-actions {
+        flex-direction: column;
+    }
+    
+    .btn-small {
+        text-align: center;
+    }
+}
+
+/* ===== Estilos do Dashboard ===== */
+.user-dashboard {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.dashboard-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border-left: 4px solid var(--primary-color);
+    color: black;
+}
+
+.dashboard-card.full-width {
+    grid-column: 1 / -1;
+}
+
+.dashboard-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.aulas-list, .cobrancas-list, .beneficios-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.aulas-list li, .cobrancas-list li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9rem;
+}
+
+.aulas-list li:last-child, .cobrancas-list li:last-child {
+    border-bottom: none;
+}
+
+.beneficios-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 0.5rem;
+}
+
+.beneficios-list li {
+    padding: 0.5rem 0;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.alert-info {
+    background: #e3f2fd;
+    color: #000000;
+    padding: 0.5rem;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.status-aberto {
+    background: #006108;
+    color: #a8f8da;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.dashboard-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.btn-small {
+    padding: 6px 12px;
+    background: var(--primary-color);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    transition: all 0.3s ease;
+    color: black;
+}
+
+.btn-small:hover {
+    background: var(--primary-dark);
+    transform: translateY(-1px);
+}

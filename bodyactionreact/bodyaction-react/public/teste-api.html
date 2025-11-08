@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de API - BodyAction</title>
+</head>
+<body>
+    <h1>Teste de API - BodyAction</h1>
+    
+    <button onclick="testarCadastro()">Testar Cadastro</button>
+    <button onclick="testarLogin()">Testar Login</button>
+    
+    <div id="resultado"></div>
+    
+    <script>
+        async function testarCadastro() {
+            const resultado = document.getElementById('resultado');
+            resultado.innerHTML = 'Testando cadastro...';
+            
+            try {
+                const dados = {
+                    nome: 'Teste Usuario',
+                    cpf: '12345678901',
+                    email: 'teste@teste.com',
+                    dataNascimento: '1990-01-01',
+                    telefone: '11999999999',
+                    senha: 'teste123',
+                    plano: '1'
+                };
+                
+                console.log('Enviando dados:', dados);
+                
+                const response = await fetch('http://localhost:5001/api/cadastro', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(dados)
+                });
+                
+                console.log('Status da resposta:', response.status);
+                const result = await response.json();
+                console.log('Resposta completa:', result);
+                
+                resultado.innerHTML = `<pre>${JSON.stringify(result, null, 2)}</pre>`;
+                
+                if (response.ok && result.success) {
+                    alert('✅ Cadastro funcionando! Redirecionando...');
+                    setTimeout(() => {
+                        window.location.href = '/pages/conta.html';
+                    }, 2000);
+                }
+                
+            } catch (error) {
+                console.error('Erro:', error);
+                resultado.innerHTML = `Erro: ${error.message}`;
+            }
+        }
+        
+        async function testarLogin() {
+            const resultado = document.getElementById('resultado');
+            resultado.innerHTML = 'Testando login...';
+            
+            try {
+                const dados = {
+                    identificador: 'teste@teste.com',
+                    senha: 'teste123'
+                };
+                
+                const response = await fetch('http://localhost:5001/api/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(dados)
+                });
+                
+                const result = await response.json();
+                console.log('Resposta do login:', result);
+                
+                resultado.innerHTML = `<pre>${JSON.stringify(result, null, 2)}</pre>`;
+                
+                if (response.ok && result.success) {
+                    alert('✅ Login funcionando! Redirecionando...');
+                    localStorage.setItem('bodyaction_user', JSON.stringify(result.usuario));
+                    setTimeout(() => {
+                        window.location.href = '/pages/conta.html';
+                    }, 2000);
+                }
+                
+            } catch (error) {
+                console.error('Erro:', error);
+                resultado.innerHTML = `Erro: ${error.message}`;
+            }
+        }
+    </script>
+    <h1>Teste da API BodyAction</h1>
+    <button onclick="testarAPI()">Testar Planos</button>
+    <button onclick="testarCadastro()">Testar Cadastro</button>
+    <div id="resultado"></div>
+    
+    <script>
+        async function testarAPI() {
+            try {
+                console.log("Testando API...");
+                const response = await fetch('http://localhost:5001/api/planos');
+                const data = await response.text();
+                document.getElementById('resultado').innerHTML = `<h3>Resultado:</h3><pre>${data}</pre>`;
+            } catch (error) {
+                document.getElementById('resultado').innerHTML = `<h3>Erro:</h3><pre>${error.message}</pre>`;
+                console.error("Erro:", error);
+            }
+        }
+        
+        async function testarCadastro() {
+            try {
+                const dadosTeste = {
+                    Nome: "Teste Usuario",
+                    Cpf: "12345678901",
+                    Email: "teste@email.com",
+                    DataNascimento: "1990-01-01",
+                    Telefone: "11999999999",
+                    PlanoId: 1
+                };
+                
+                console.log("Testando cadastro...", dadosTeste);
+                const response = await fetch('http://localhost:5001/api/cadastro', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(dadosTeste)
+                });
+                
+                const data = await response.text();
+                document.getElementById('resultado').innerHTML = `<h3>Resultado Cadastro:</h3><pre>${data}</pre>`;
+            } catch (error) {
+                document.getElementById('resultado').innerHTML = `<h3>Erro Cadastro:</h3><pre>${error.message}</pre>`;
+                console.error("Erro:", error);
+            }
+        }
+    </script>
+</body>
+</html>
