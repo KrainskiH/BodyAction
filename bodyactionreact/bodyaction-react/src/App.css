@@ -1,5 +1,76 @@
 /* Estilos para App */
 
+/* ===== Welcome Gateway (overlay de abertura) ===== */
+.ba-gateway-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0,0,0,0.75);
+  backdrop-filter: blur(4px);
+  z-index: 3000;
+  display: grid;
+  place-items: center;
+}
+.ba-gateway-overlay.active { display: grid; place-items: center; }
+.ba-gateway {
+  width: min(920px, 92vw);
+  background: radial-gradient(1200px 600px at 10% 10%, rgba(255,0,0,0.12), transparent 60%), #0f0f12;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+  color: #eaeaf4;
+  overflow: hidden;
+}
+.ba-gw-header { display:flex; align-items:center; gap:12px; padding:22px 22px 0 22px; }
+.ba-gw-header img { width:42px; height:42px; object-fit:contain; }
+.ba-gw-title { font-size:20px; color:#fff; margin:0; }
+.ba-gw-sub { font-size:13px; color:#aaa; margin:4px 0 0; }
+.ba-gw-body { padding: 10px 22px 22px 22px; }
+.ba-gw-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.ba-gw-card { 
+  background:rgba(255,255,255,0.05); 
+  border:1px solid rgba(255,255,255,0.08); 
+  border-radius:8px; 
+  padding:18px; 
+  transition:all 0.2s ease;
+}
+.ba-gw-card:hover { background:rgba(255,255,255,0.08); }
+.ba-gw-card h3 { font-size:16px; color:#fff; margin:0 0 8px; }
+.ba-gw-card p { font-size:13px; color:#bbb; margin:0 0 14px; }
+.ba-gw-actions { display:flex; gap:8px; flex-wrap:wrap; }
+.ba-gw-footer { 
+  background:rgba(0,0,0,0.3); 
+  padding:16px 22px; 
+  display:flex; 
+  align-items:center; 
+  justify-content:space-between; 
+  flex-wrap:wrap; 
+  gap:12px;
+}
+.ba-gw-mini { font-size:11px; color:#888; }
+.ba-btn { 
+  background:#333; 
+  color:#fff; 
+  border:1px solid #555; 
+  padding:6px 12px; 
+  border-radius:4px; 
+  text-decoration:none; 
+  font-size:12px; 
+  cursor:pointer; 
+  transition:all 0.2s ease;
+  display: inline-block;
+}
+.ba-btn:hover { background:#444; }
+.ba-btn.primary { background:#c41e3a; border-color:#c41e3a; }
+.ba-btn.primary:hover { background:#a01729; }
+
+@media (max-width: 700px) {
+  .ba-gw-grid { grid-template-columns:1fr; }
+  .ba-gw-footer { flex-direction:column; text-align:center; }
+}
+
 /* Layout: Sobre + Carousel lado a lado */
 .sobre-carousel-wrapper {
   display: flex;

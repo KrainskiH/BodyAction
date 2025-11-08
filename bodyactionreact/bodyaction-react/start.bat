@@ -40,11 +40,13 @@ echo [3/4] Aguardando API inicializar (5 segundos)...
 timeout /t 5 /nobreak >nul
 
 echo [4/4] Iniciando Frontend na porta 5000...
+set HOST=0.0.0.0
 echo.
 echo ========================================
 echo  TUDO RODANDO!
 echo ========================================
 echo  Frontend:     http://localhost:5000
+echo  LAN (rede):   http://SEU-IP:5000
 echo  API C#:       http://localhost:5001
 echo  API via proxy: http://localhost:5000/api/*
 echo ========================================

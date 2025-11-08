@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Header from './components/Header';
 import Preloader from './components/Preloader';
+import WelcomeGateway from './components/WelcomeGateway';
 import Footer from './components/Footer';
 import MapView from './components/MapView';
 import Carousel from './components/Carousel';
@@ -14,6 +15,7 @@ function App() {
   return (
     <div className="App">
       <Preloader />
+      <WelcomeGateway />
       <Header />
       <Hero />
       

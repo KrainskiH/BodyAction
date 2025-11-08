@@ -137,11 +137,35 @@ if (preloader) {
 // ====== Welcome Gateway (overlay de abertura) ======
 (function initWelcomeGateway(){
   try {
-    const KEY_SEEN = 'ba_gateway_seen_v1';
+    const KEY_SEEN = 'ba_gateway_seen_v2';
     const KEY_ROLE = 'ba_user_role'; // 'aluno' | 'funcionario'
 
-    // Só mostra se ainda não foi visto
-    if (localStorage.getItem(KEY_SEEN) === '1') return;
+    // Forçar via querystring: ?gw=1 ou ?gateway=1 ou ?showGateway=1
+    let forceGW = false;
+    try { const usp = new URLSearchParams(location.search); forceGW = usp.has('gw') || usp.has('gateway') || usp.get('showGateway') === '1'; } catch(_) {}
+
+    // Checa se veio de outra página do mesmo site
+    const isInternalNavigation = () => {
+      const referrer = document.referrer;
+      if (!referrer) return false; // Sem referrer = acesso direto ou refresh
+      
+      try {
+        const referrerUrl = new URL(referrer);
+        const currentUrl = new URL(location.href);
+        return referrerUrl.hostname === currentUrl.hostname;
+      } catch {
+        return false;
+      }
+    };
+
+    const isInternal = isInternalNavigation();
+    const seenInSession = sessionStorage.getItem(KEY_SEEN) === '1';
+
+    console.log('Main.js Gateway: forceGW =', forceGW, 'isInternal =', isInternal, 'seenInSession =', seenInSession);
+
+    // LÓGICA SIMPLES: mostra SEMPRE, exceto se já viu nesta sessão E é navegação interna
+    const shouldShow = forceGW || !(seenInSession && isInternal);
+    if (!shouldShow) return;
 
     // Cria overlay
     const overlay = document.createElement('div');
@@ -184,43 +208,44 @@ if (preloader) {
     document.body.appendChild(overlay);
 
     function openGW(){ overlay.classList.add('active'); }
-    function closeGW(){ overlay.classList.remove('active'); localStorage.setItem(KEY_SEEN,'1'); }
+    function closeGW(){ overlay.classList.remove('active'); sessionStorage.setItem(KEY_SEEN,'1'); }
 
-    // Ações
+    // Ações dos botões
     overlay.addEventListener('click', (e)=>{
       const btn = e.target.closest('button, a');
       if (!btn) return;
       const action = btn.getAttribute('data-action');
+      // Se for um link normal, marca como visto e deixa navegar
+      if (btn.tagName === 'A') {
+        sessionStorage.setItem(KEY_SEEN,'1');
+        return; // navegação natural
+      }
       if (action === 'continuar') { closeGW(); }
-      if (action === 'aluno-dashboard') { localStorage.setItem(KEY_ROLE,'aluno'); showAlunoDashboard(); }
-      if (action === 'func-area') { localStorage.setItem(KEY_ROLE,'funcionario'); showFuncionarioArea(); }
+      if (action === 'aluno-dashboard') {
+        localStorage.setItem(KEY_ROLE,'aluno');
+        sessionStorage.setItem(KEY_SEEN,'1');
+        overlay.classList.remove('active');
+        window.location.href = '/pages/aluno.html';
+      }
+      if (action === 'func-area') {
+        localStorage.setItem(KEY_ROLE,'funcionario');
+        sessionStorage.setItem(KEY_SEEN,'1');
+        overlay.classList.remove('active');
+        window.location.href = '/pages/funcionario.html';
+      }
     });
 
-    function showAlunoDashboard(){
-      const card = overlay.querySelector('#opt-aluno');
-      if (!card) return;
-      card.innerHTML = `
-        <h3>Minha Área — Aluno</h3>
-        <p>Aqui você encontrará suas próximas aulas e status de pagamento.</p>
-        <div class="ba-gw-actions">
-          <a class="ba-btn" href="/pages/services.html">Minhas aulas (exemplo)</a>
-          <a class="ba-btn" href="/pages/planos.html">Minhas cobranças (exemplo)</a>
-        </div>
-      `;
-    }
+    // Fechar ao clicar no backdrop (fora do modal)
+    overlay.addEventListener('click', (e) => {
+      // Só fecha se clicou diretamente no overlay (backdrop), não nos elementos filhos
+      if (e.target === overlay) {
+        console.log('Main.js Gateway: backdrop clicked, closing gateway');
+        closeGW();
+      }
+    });
 
-    function showFuncionarioArea(){
-      const card = overlay.querySelector('#opt-func');
-      if (!card) return;
-      card.innerHTML = `
-        <h3>Área do Funcionário</h3>
-        <p>Acesso rápido a seções administrativas (protótipo).</p>
-        <div class="ba-gw-actions">
-          <a class="ba-btn" href="/pages/planos.html">Gerenciar Planos</a>
-          <a class="ba-btn" href="/pages/contato.html">Mensagens/Contatos</a>
-        </div>
-      `;
-    }
+    function showAlunoDashboard(){}
+    function showFuncionarioArea(){}
 
     // Exibir ao carregar (apenas se não visto)
     requestAnimationFrame(openGW);
