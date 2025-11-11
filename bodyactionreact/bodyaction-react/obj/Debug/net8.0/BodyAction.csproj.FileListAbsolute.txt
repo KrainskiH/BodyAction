@@ -252,6 +252,7 @@ C:\Users\Pichau\Documents\Henrique importante Facul\BodyAction\BodyAction\BodyAc
 C:\Users\Pichau\Documents\Henrique importante Facul\BodyAction\BodyAction\BodyAction\bodyactionreact\bodyaction-react\obj\Debug\net8.0\BodyAction.pdb
 C:\Users\Pichau\Documents\Henrique importante Facul\BodyAction\BodyAction\BodyAction\bodyactionreact\bodyaction-react\obj\Debug\net8.0\BodyAction.genruntimeconfig.cache
 C:\Users\Pichau\Documents\Henrique importante Facul\BodyAction\BodyAction\BodyAction\bodyactionreact\bodyaction-react\obj\Debug\net8.0\ref\BodyAction.dll
+<<<<<<< HEAD
 C:\Users\lucas\OneDrive\Área de Trabalho\BodyAction-main\bodyactionreact\bodyaction-react\bin\Debug\net8.0\appsettings.json
 C:\Users\lucas\OneDrive\Área de Trabalho\BodyAction-main\bodyactionreact\bodyaction-react\bin\Debug\net8.0\package-lock.json
 C:\Users\lucas\OneDrive\Área de Trabalho\BodyAction-main\bodyactionreact\bodyaction-react\bin\Debug\net8.0\package.json
@@ -377,3 +378,5 @@ C:\Users\lucas\OneDrive\Área de Trabalho\BodyAction-main\bodyactionreact\bodyac
 C:\Users\lucas\OneDrive\Área de Trabalho\BodyAction-main\bodyactionreact\bodyaction-react\obj\Debug\net8.0\BodyAction.pdb
 C:\Users\lucas\OneDrive\Área de Trabalho\BodyAction-main\bodyactionreact\bodyaction-react\obj\Debug\net8.0\BodyAction.genruntimeconfig.cache
 C:\Users\lucas\OneDrive\Área de Trabalho\BodyAction-main\bodyactionreact\bodyaction-react\obj\Debug\net8.0\ref\BodyAction.dll
+=======
+>>>>>>> a232267cd669eeab49fb98799db3d0d89729a2f9

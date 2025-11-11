@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 /* ===== HEADER BASE ===== */
+=======
+>>>>>>> a232267cd669eeab49fb98799db3d0d89729a2f9
 header {
   display: flex;
   justify-content: space-between;
@@ -11,6 +14,7 @@ header {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
   transition: padding 1s ease, background 1s ease, box-shadow 1s ease;
   border-bottom: 2px solid #ff0000;
+<<<<<<< HEAD
   min-height: 70px;
 }
 
@@ -29,11 +33,38 @@ header.scrolled .logo h1,
 header.scrolled .logo p { font-size: 1.2rem; }
 
 #TITULO { color: #ff0000; }
+=======
+  min-height: 70px;}
+
+header.scrolled {
+  padding: 10px; /* Leve diminuição de padding quando a página rola */}
+
+header .logo {
+  transition: transform 1s ease, font-size 1s ease, text-shadow 1s ease;}
+
+header.scrolled .logo {
+  transform: scale(1); /* Reduz o tamanho do logo */
+  text-shadow: 0 0 4px #ff0000;}
+
+header.scrolled #TITULO {
+  transform: scale(1); /* Evita deformação do TÍTULO */
+  transition: color 1s ease, transform 1s ease;}
+
+header .logo h1, p {
+  transition: font-size 1s ease;}
+
+header.scrolled .logo h1,p {
+  font-size: 1.2rem; /* Tamanho menor do título quando a página rola */}
+
+#TITULO{
+  color:#ff0000;}
+>>>>>>> a232267cd669eeab49fb98799db3d0d89729a2f9
 
 #DRAMA{
   margin: 20px;
   font-family: "BBH Sans Bartle", sans-serif;
   font-weight: 500;
+<<<<<<< HEAD
   font-style: italic;
   color: #ff0000;
 }
@@ -55,6 +86,29 @@ header.scrolled .logo p { font-size: 1.2rem; }
 }
 
 /* ===== HOVER GLOW ===== */
+=======
+  font-style:italic;
+  color: #ff0000;}
+
+.logo {
+  display:flex;
+  align-items:center;
+  gap:10px;}
+
+.logo h1 {
+  font-family:"Bebas Neue", sans-serif;
+  color:#f5f5f5;
+  font-size:29px;
+  text-shadow:2px 2px 5px rgba(0,0,0,0.5);}
+
+.logo p {
+  font-family:"Bebas Neue", sans-serif;
+  font-size: 16px;
+  color: #eaeaf4;
+  margin-top: 2px;}
+
+  /* ===== HOVER GLOW ===== */
+>>>>>>> a232267cd669eeab49fb98799db3d0d89729a2f9
 header::after {
   content: "";
   position: absolute;
@@ -63,6 +117,7 @@ header::after {
   border-radius: 3px;
   opacity: 0;
   transition: all 1s ease;
+<<<<<<< HEAD
   pointer-events: none;
   z-index: 0;              /* fica ATRÁS do conteúdo */
 }
@@ -73,13 +128,39 @@ header:hover::after { opacity: 1; box-shadow: 0 0 15px #ff0000; }
 .logo, .main-nav, #menu-toggle { position: relative; z-index: 1; }
 
 /* ===== MENU FIXO DESKTOP ===== */
+=======
+  pointer-events: none;}
+
+header:hover h1 {
+  text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000;
+  transform: scale(1.05);}
+  
+header:hover::after {
+  opacity: 1;
+  box-shadow: 0 0 15px #ff0000;}
+
+/* MENU FIXO DESKTOP */
+>>>>>>> a232267cd669eeab49fb98799db3d0d89729a2f9
 .main-nav ul {
   display: flex;
   list-style: none;
   gap: 35px;
   margin: 0;
+<<<<<<< HEAD
   padding: 0;
 }
+=======
+  padding: 0;}
+
+.main-nav a {
+  color: #eaeaf4;
+  text-decoration: none;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 23px;
+  position: relative;
+  transition: color 0.3s, transform 0.2s ease;}
+
+>>>>>>> a232267cd669eeab49fb98799db3d0d89729a2f9
 .main-nav li {
   list-style: none;
   position: relative;
@@ -87,6 +168,7 @@ header:hover::after { opacity: 1; box-shadow: 0 0 15px #ff0000; }
   transform: translateY(8px);
   animation: navFadeInUp .45s ease forwards;
 }
+<<<<<<< HEAD
 .main-nav a {
   color: #eaeaf4;
   text-decoration: none;
@@ -95,6 +177,9 @@ header:hover::after { opacity: 1; box-shadow: 0 0 15px #ff0000; }
   position: relative;
   transition: color 0.3s, transform 0.2s ease;
 }
+=======
+
+>>>>>>> a232267cd669eeab49fb98799db3d0d89729a2f9
 .main-nav a::after {
   content: '';
   position: absolute;
@@ -104,6 +189,7 @@ header:hover::after { opacity: 1; box-shadow: 0 0 15px #ff0000; }
   left: 0;
   background: #ff0000;
   transition: 0.3s;
+<<<<<<< HEAD
   border-radius: 2px;
 }
 .main-nav a:hover::after { width: 100%; }
@@ -123,6 +209,34 @@ header:hover::after { opacity: 1; box-shadow: 0 0 15px #ff0000; }
 }
 
 /* ===== BOTÃO MENU MOBILE ===== */
+=======
+  border-radius: 2px;}
+
+.main-nav a:hover::after {
+  width: 100%;}
+
+.main-nav a:hover {
+  transform: translateY(-1px);
+}
+
+.main-nav a.ativo {
+  color: #ffffff;
+}
+.main-nav a.ativo::after {
+  width: 100%;
+}
+
+@keyframes navFadeInUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+/* Esconder menu fixo em telas pequenas */
+@media (max-width: 1000px) {
+  .main-nav {
+    display: none;}
+  #menu-toggle {
+    display: block;}}
+
+/* Botão só aparece <1000 */
+>>>>>>> a232267cd669eeab49fb98799db3d0d89729a2f9
 #menu-toggle {
   display: none;
   align-items: center;
@@ -134,6 +248,7 @@ header:hover::after { opacity: 1; box-shadow: 0 0 15px #ff0000; }
   border: none;
   border-radius: 8px;
   cursor: pointer;
+<<<<<<< HEAD
   transition: background 0.3s, transform 0.3s;  /* corrigido 'background' */
 }
 @media (max-width: 1000px) { #menu-toggle { display: block; } }
@@ -164,6 +279,46 @@ header:hover::after { opacity: 1; box-shadow: 0 0 15px #ff0000; }
   gap: 25px;
 }
 #side-menu li { opacity: 0; transform: translateX(10px); animation: navFadeInRight .35s ease forwards; }
+=======
+  transition: backgroud 0.3s, transform 0.3s;}
+
+@media (max-width: 1000px) {
+  #menu-toggle {
+    display: block;}}
+
+#menu-toggle:hover {
+  transform: rotate(90deg) scale(1.1);}
+
+/* Menu lateral mobile */
+#side-menu {
+  position:fixed;
+  top:0;
+  right:-320px;
+  width:320px;
+  height:100%;
+  background:rgba(18,18,24,0.95);
+  backdrop-filter:blur(8px);
+  padding:40px 20px;
+  transition:right 0.4s ease;
+  z-index:2000;
+  display:flex;
+  flex-direction:column;
+  gap:25px;}
+
+#side-menu.active {
+  right: 0;}
+
+#side-menu ul {
+  list-style:none;
+  padding:0;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  height:100%;
+  gap:25px;}
+
+>>>>>>> a232267cd669eeab49fb98799db3d0d89729a2f9
 #side-menu li a {
   display: block;
   font-size: 20px;
@@ -171,18 +326,29 @@ header:hover::after { opacity: 1; box-shadow: 0 0 15px #ff0000; }
   text-decoration: none;
   padding: 10px 20px;
   border-radius: 8px;
+<<<<<<< HEAD
   text-align: center;
   transition: color .3s, transform .2s ease, background-color .3s ease, box-shadow .3s ease;
 }
+=======
+  transition: color 0.3s, transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;}
+
+>>>>>>> a232267cd669eeab49fb98799db3d0d89729a2f9
 #side-menu li a:hover {
   transform: translateY(-1px) scale(1.02);
   background: rgba(255, 0, 0, 0.08);
   box-shadow: 0 4px 14px rgba(0,0,0,0.25);
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> a232267cd669eeab49fb98799db3d0d89729a2f9
 #side-menu li a.ativo {
   background: rgba(255, 0, 0, 0.12);
   box-shadow: inset 0 0 0 1px rgba(255,0,0,0.35);
 }
+<<<<<<< HEAD
 @keyframes navFadeInRight {
   from { opacity: 0; transform: translateX(10px); }
   to   { opacity: 1; transform: translateX(0); }
@@ -421,3 +587,32 @@ header:hover::after { opacity: 1; box-shadow: 0 0 15px #ff0000; }
 .nav__btn {
   background: transparent !important;
 }
+=======
+
+#side-menu li {
+  opacity: 0;
+  transform: translateX(10px);
+  animation: navFadeInRight .35s ease forwards;
+}
+
+@keyframes navFadeInRight { from { opacity: 0; transform: translateX(10px); } to { opacity: 1; transform: translateX(0); } }
+
+/* OVERLAY */
+#overlay {
+  display: none;}
+
+#overlay.active {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1000;
+  backdrop-filter: blur(2px);}
+
+  .logoo img {
+    width:40px;
+    height:auto;}
+>>>>>>> a232267cd669eeab49fb98799db3d0d89729a2f9

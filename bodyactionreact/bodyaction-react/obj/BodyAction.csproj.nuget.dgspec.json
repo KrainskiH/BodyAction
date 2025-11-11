@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\lucas\\OneDrive\\Área de Trabalho\\BodyAction-main\\bodyactionreact\\bodyaction-react\\BodyAction.csproj": {}
   },
   "projects": {
@@ -15,6 +16,22 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\lucas\\AppData\\Roaming\\NuGet\\NuGet.Config"
+=======
+    "C:\\Users\\Pichau\\Documents\\Henrique importante Facul\\BodyAction\\BodyAction\\BodyAction\\bodyactionreact\\bodyaction-react\\BodyAction.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\Pichau\\Documents\\Henrique importante Facul\\BodyAction\\BodyAction\\BodyAction\\bodyactionreact\\bodyaction-react\\BodyAction.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\Pichau\\Documents\\Henrique importante Facul\\BodyAction\\BodyAction\\BodyAction\\bodyactionreact\\bodyaction-react\\BodyAction.csproj",
+        "projectName": "BodyAction",
+        "projectPath": "C:\\Users\\Pichau\\Documents\\Henrique importante Facul\\BodyAction\\BodyAction\\BodyAction\\bodyactionreact\\bodyaction-react\\BodyAction.csproj",
+        "packagesPath": "C:\\Users\\Pichau\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Pichau\\Documents\\Henrique importante Facul\\BodyAction\\BodyAction\\BodyAction\\bodyactionreact\\bodyaction-react\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Pichau\\AppData\\Roaming\\NuGet\\NuGet.Config"
+>>>>>>> a232267cd669eeab49fb98799db3d0d89729a2f9
         ],
         "originalTargetFrameworks": [
           "net8.0"
@@ -32,6 +49,14 @@
           "warnAsError": [
             "NU1605"
           ]
+<<<<<<< HEAD
+=======
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+>>>>>>> a232267cd669eeab49fb98799db3d0d89729a2f9
         }
       },
       "frameworks": {
@@ -72,7 +97,11 @@
               "privateAssets": "all"
             }
           },
+<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.121/PortableRuntimeIdentifierGraph.json"
+=======
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.415/PortableRuntimeIdentifierGraph.json"
+>>>>>>> a232267cd669eeab49fb98799db3d0d89729a2f9
         }
       }
     }

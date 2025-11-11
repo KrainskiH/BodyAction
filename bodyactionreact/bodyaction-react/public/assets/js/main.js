@@ -294,6 +294,7 @@ if (preloader) {
         }
     });
   } catch(e) { console.warn('Gateway não pôde iniciar:', e); }
+<<<<<<< HEAD
 })();
 // ... (seu código atual do main.js)
 
@@ -369,3 +370,6 @@ if (preloader) {
     if (bind() || ++tries > 20) clearInterval(iv);
   }, 200);
 })();
+=======
+})();
+>>>>>>> a232267cd669eeab49fb98799db3d0d89729a2f9
