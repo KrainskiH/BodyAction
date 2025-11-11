@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - BodyAction</title>
+    <link rel="stylesheet" href="/assets/css/main.css">
+    <link rel="stylesheet" href="/assets/css/layout/header.css">
+    <link rel="stylesheet" href="/assets/css/components/user-header.css">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Asimovian&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+   <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/img/bodyaction_logo.png">
+
+</head>
+<body>
+    <div id="header-slot"></div>
+
+    <section id="login">
+        <form id="form-login">
+            <fieldset>
+                <h2>Entre na sua conta:</h2>
+                
+                <label for="identificador-login">Nome ou Email:</label>
+                <input type="text" id="identificador-login" name="identificador" placeholder="Digite seu nome ou email" required>
+                <small id="identificador-erro-login" style="color: red; display: none;">Nome ou email obrigatório.</small>
+
+                <label for="senha-login">Senha:</label>
+                <input type="password" id="senha-login" name="senha" placeholder="Digite sua senha" required>
+                <small id="senha-erro-login" style="color: red; display: none;">Senha obrigatória.</small>
+
+                <button type="submit" class="botao-assinar">Entrar</button>
+                
+                <!-- Botões de teste -->
+                <button type="button" onclick="testarRedirect()" style="background: #e74c3c; margin-top: 10px;">🧪 Teste Redirect</button>
+                <button type="button" onclick="limparLogin()" style="background: #f39c12; margin-top: 10px;">🗑️ Limpar Login</button>
+                
+                <p>Não tem conta? <a href="/pages/cadastro.html">Cadastre-se aqui</a></p>
+            </fieldset>
+        </form>
+    </section>
+
+    <div id="footer-slot"></div>
+
+    <script src="/assets/js/header.js"></script>
+    <script src="/assets/js/footer.js"></script>
+    <script src="/assets/js/main.js"></script>
+    <script src="/assets/js/auth.js"></script>
+    
+    <script>
+        // Função de teste de redirecionamento
+        function testarRedirect() {
+            console.log('🧪 Testando redirecionamento direto...');
+            alert('Redirecionando para conta.html em 2 segundos...');
+            setTimeout(() => {
+                window.location.href = '/pages/conta.html';
+            }, 2000);
+        }
+        
+        // Função para limpar login
+        function limparLogin() {
+            console.log('🗑️ Limpando localStorage...');
+            localStorage.removeItem('bodyaction_user');
+            alert('Login limpo! Recarregando página...');
+            window.location.reload();
+        }
+        
+        // Debug adicional
+        console.log('🔍 Script de teste carregado');
+        console.log('🔍 Formulário existe?', document.getElementById('form-login'));
+        console.log('🔍 localStorage atual:', localStorage.getItem('bodyaction_user'));
+    </script>
+</body>
+</html>

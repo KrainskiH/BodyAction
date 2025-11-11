@@ -1,0 +1,59 @@
+/* Base */
+@import url('./base/reset.css');
+@import url('./base/variables.css');
+@import url('./base/typography.css');
+@import url('./base/animations.css');
+@import url('./base/scrollbar.css');
+
+/* Layout */
+@import url('./layout/header.css');
+@import url('./layout/footer.css');
+
+/* Components */
+@import url('./components/preloader.css');
+@import url('./components/map.css');
+
+/* Pages */
+@import url('./pages/contato.css');
+@import url('./pages/sobre.css');
+@import url('./pages/planos.css');
+@import url('./pages/services.css');
+@import url('./pages/cadastro.css');
+
+/* ===== Welcome Gateway (overlay de abertura) ===== */
+.ba-gateway-overlay {
+	position: fixed;
+	inset: 0;
+	background: rgba(0,0,0,0.75);
+	backdrop-filter: blur(4px);
+	z-index: 3000;
+	display: none;
+}
+.ba-gateway-overlay.active { display: grid; place-items: center; }
+.ba-gateway {
+	width: min(920px, 92vw);
+	background: radial-gradient(1200px 600px at 10% 10%, rgba(255,0,0,0.12), transparent 60%), #0f0f12;
+	border: 1px solid rgba(255,255,255,0.12);
+	border-radius: 16px;
+	box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+	color: #eaeaf4;
+	overflow: hidden;
+}
+.ba-gw-header { display:flex; align-items:center; gap:12px; padding:22px 22px 0 22px; }
+.ba-gw-header img { width:42px; height:42px; object-fit:contain; }
+.ba-gw-body { padding: 10px 22px 22px 22px; }
+.ba-gw-title { font-family: "Bebas Neue", sans-serif; font-size: 36px; letter-spacing: 1px; margin: 0 0 6px 0; }
+.ba-gw-sub  { color:#cfcfe6; margin:0 0 16px 0; }
+.ba-gw-grid { display:grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap:16px; }
+.ba-gw-card { background: rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.12); border-radius:12px; padding:16px; transition: transform .2s ease, box-shadow .2s ease, background .2s ease; }
+.ba-gw-card:hover { transform: translateY(-2px); box-shadow: 0 10px 25px rgba(0,0,0,0.35); background: rgba(255,255,255,0.08); }
+.ba-gw-card h3 { margin:0 0 8px 0; font-size: 20px; }
+.ba-gw-actions { display:flex; gap:10px; flex-wrap:wrap; margin-top: 12px; }
+.ba-btn { display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:10px 14px; border-radius: 10px; border:1px solid rgba(255,255,255,0.16); background: rgba(255,255,255,0.06); color:#fff; text-decoration:none; cursor:pointer; transition: background .2s ease, transform .2s ease, box-shadow .2s ease; }
+.ba-btn:hover { background: rgba(255,0,0,0.18); box-shadow: 0 6px 18px rgba(255,0,0,0.18); transform: translateY(-1px); }
+.ba-btn.primary { background: #E0242A; border-color: #E0242A; }
+.ba-btn.primary:hover { background: #ff2e35; }
+.ba-gw-footer { display:flex; justify-content: space-between; align-items:center; gap:8px; padding: 14px 22px 20px 22px; border-top: 1px solid rgba(255,255,255,0.08); }
+.ba-gw-close { margin-left:auto; }
+.ba-gw-mini { font-size: 12px; color:#aaa; }
+@media (max-width: 800px) { .ba-gw-grid { grid-template-columns: 1fr; } }

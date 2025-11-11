@@ -1,0 +1,236 @@
+/* PÁGINA CONTATO */
+
+/* Hero */
+.fc-hero {
+  background: #0c0c0c;
+  color: #ffffff;
+  padding: 36px 16px;
+  text-align: center;
+}
+
+.fc-hero h1 {
+  margin: 0 0 8px;
+}
+
+.fc-hero p {
+  margin: 0;
+  opacity: .9;
+}
+
+/* Wrapper */
+.fc-wrap {
+  max-width: 1100px;
+  margin: 24px auto;
+  padding: 0 16px;
+}
+
+/* Grid principal */
+.fc-grid {
+  display: grid;
+  grid-template-columns: 2fr 1.2fr;
+  gap: 28px;
+}
+
+/* Cartões genéricos */
+.fc-card {
+  background: #101011;
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 14px;
+  padding: 18px;
+  color: #ffffff;
+}
+
+.fc-card h2, .fc-card h3 {
+  margin: 0 0 10px;
+}
+
+/* Canais de contato */
+.fc-canals {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.canal {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 14px;
+  border-radius: 12px;
+  background: #0f0f10;
+  border: 1px solid rgba(255,255,255,.06);
+}
+
+.canal i {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  color: #E0242A;
+}
+
+.canal a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.canal small {
+  display: block;
+  opacity: .7;
+}
+
+/* Formulário */
+.fc-form .row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.fc-form label {
+  font-size: .95rem;
+  opacity: .9;
+}
+
+.fc-form input,
+.fc-form select,
+.fc-form textarea {
+  width: 100%;
+  background: #0f0f10;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 10px;
+  color: #ffffff;
+  padding: 10px 12px;
+  transition: border .2s, box-shadow .2s;
+}
+
+.fc-form input:focus,
+.fc-form select:focus,
+.fc-form textarea:focus {
+  border-color: #E0242A;
+  box-shadow: 0 0 6px rgba(224,36,42,.4);
+  outline: none;
+}
+
+.fc-form textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.fc-form .full {
+  grid-column: 1 / -1;
+}
+
+.fc-form .actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+/* Botão */
+.btn-primary {
+  background: #E0242A;
+  border: 0;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 26px;
+  cursor: pointer;
+  transition: filter .2s ease, transform .15s ease;
+}
+
+.btn-primary:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+
+/* Validação visual */
+input:invalid, textarea:invalid, select:invalid {
+  border-color: #b52424;
+  box-shadow: 0 0 4px rgba(181,36,36,.4);
+}
+
+input:valid, textarea:valid, select:valid {
+  border-color: #24b54a;
+  box-shadow: 0 0 4px rgba(36,181,74,.4);
+}
+
+/* Textos auxiliares */
+.muted {
+  font-size: .9rem;
+  opacity: .75;
+}
+
+/* Lateral */
+.fc-aside .list {
+  display: grid;
+  gap: 10px;
+}
+
+.fc-aside .list li {
+  list-style: none;
+  border-bottom: 1px dashed rgba(255,255,255,.06);
+  padding: 8px 0;
+}
+
+.badge {
+  font-size: .75rem;
+  background: #18181a;
+  border: 1px solid rgba(255,255,255,.08);
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+/* FAQ */
+.faq details {
+  background: #0f0f10;
+  border: 1px solid rgba(255,255,255,.06);
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.faq details + details {
+  margin-top: 10px;
+}
+
+.faq summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Alertas visuais */
+.fc-alert {
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-top: 10px;
+  font-size: .9rem;
+}
+
+.fc-alert.ok {
+  background: rgba(36,181,74,.1);
+  color: #24b54a;
+  border: 1px solid rgba(36,181,74,.3);
+}
+
+.fc-alert.err {
+  background: rgba(181,36,36,.1);
+  color: #b52424;
+  border: 1px solid rgba(181,36,36,.3);
+}
+
+/* Responsividade */
+@media (max-width: 900px) {
+  .fc-grid {
+    grid-template-columns: 1fr;
+  }
+  .fc-canals {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .fc-form .row {
+    grid-template-columns: 1fr;
+  }
+}

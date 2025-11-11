@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BodyAction | Cadastre-se</title>
+  <meta name="description" content="Cadastre-se na BodyAction e comece hoje seu treino com acompanhamento profissional.">
+  <link rel="canonical" href="/pages/cadastro.html" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Cadastro BodyAction" />
+  <meta property="og:description" content="Crie seu cadastro e venha treinar com a gente." />
+  <meta property="og:image" content="/assets/img/bodyaction_logo.png" />
+  <meta property="og:url" content="/pages/cadastro.html" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Cadastro BodyAction" />
+  <meta name="twitter:description" content="Crie seu cadastro e venha treinar com a gente." />
+  <meta name="twitter:image" content="/assets/img/bodyaction_logo.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/img/bodyaction_logo.png">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/layout/header.css">
+  <link rel="stylesheet" href="/assets/css/components/user-header.css">
+
+   <!-- Fonts -->
+   
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Asimovian&family=Bebas+Neue&display=swap" rel="stylesheet">
+
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Asimovian&family=BBH+Sans+Bartle&family=Bebas+Neue&display=swap');
+  </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Asimovian&family=BBH+Sans+Hegarty&family=Cabin:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+ <!-- Header incluído dinamicamente -->
+  <div id="header-slot"></div>
+
+  <section id="cadastro">
+    <form id="form-cadastro">
+      <fieldset>
+        <h2>Agora, vamos criar seu cadastro na B.A:</h2>
+
+        <label for="nome">Nome completo:</label>
+        <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo." required>
+
+        <label for="cpf">CPF:</label>
+        <input type="text" id="cpf" name="cpf" placeholder="Digite o seu CPF." required>
+        <small id="cpf-erro" style="color: red; display: none;">CPF inválido: digite todos os números.</small>
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" placeholder="Digite o seu email." required>
+        <small id="email-erro" style="color: red; display: none;">Email incompleto: digite seu email corretamente.</small>
+        
+        <label for="DataNascimento">Data de Nascimento:</label>
+        <input type="date" id="DataNascimento" name="DataNascimento" placeholder="Selecione a sua data de nascimento." required>
+
+        <label for="telefone">DDD + Celular:</label>
+        <input type="text" id="telefone" name="telefone" placeholder="(99) 99999-9999" required>
+        <small id="telefone-erro" style="color: red; display: none;">Telefone inválido: digite todos os números.</small>
+
+        <label for="senha">Senha:</label>
+        <input type="password" id="senha" name="senha" placeholder="Digite uma senha (mínimo 6 caracteres)" required minlength="6">
+        <small id="senha-erro" style="color: red; display: none;">Senha deve ter pelo menos 6 caracteres.</small>
+
+        <label for="plano">Plano:</label>
+        <select id="plano" name="plano" required>
+          <option value="">Confirme seu plano</option>
+          <option value="1">1 mês - R$ 179,90</option>
+          <option value="2">3 meses - R$ 149,90</option>
+          <option value="3">12 meses - R$ 119,90</option>
+        </select>
+
+        <button type="submit" class="botao-assinar">Cadastrar</button>
+      </fieldset>
+    </form>
+  </section>
+
+
+ <!-- Footer será injetado aqui -->
+  <div id="footer-slot"></div>
+
+  <!-- Scripts -->
+  <script src="/assets/js/header.js"></script>
+  <script src="/assets/js/footer.js"></script>
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/auth.js"></script>
+  <script src="/assets/js/animations.js"></script>
+  <script src="/assets/js/unificado-limpo.js"></script>
+
+</body>
+</html>

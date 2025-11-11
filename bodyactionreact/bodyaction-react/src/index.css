@@ -1,0 +1,4 @@
+@import './styles/main.css';
+
+/* Estilos locais / overrides (se precisar, adicione abaixo) */
+@import url('./styles/main.css');

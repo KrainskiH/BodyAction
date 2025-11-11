@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BodyAction | Grade de Aulas</title>
+
+  <link rel="icon" href="/assets/img/bodyaction_logo.png">
+  <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="stylesheet" href="/assets/css/layout/header.css">
+  <link rel="stylesheet" href="/assets/css/pages/grade.css">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- usa o seu header.html normal da página -->
+  <main class="grade-wrap">
+    <header class="grade-header">
+      <h1>GRADE DE AULAS</h1>
+      <p class="muted">Veja os horários por dia/semana. Aulas fora do plano ilimitado podem ser adquiridas avulsas no balcão.</p>
+
+      <div class="grade-controls">
+        <label>
+          Modalidade:
+          <select id="filtroModalidade">
+            <option value="todas">Todas</option>
+            <option>Zumba</option>
+            <option>Funcional</option>
+            <option>Spinning</option>
+            <option>Yoga</option>
+            <option>Pilates</option>
+            <option>Muay Thai</option>
+            <option>Box</option>
+            <option>Jiu-jitsu</option>
+            <option>Natação</option>
+          </select>
+        </label>
+        <label>
+          Dia:
+          <select id="filtroDia">
+            <option value="semana">Semana inteira</option>
+            <option>Segunda</option>
+            <option>Terça</option>
+            <option>Quarta</option>
+            <option>Quinta</option>
+            <option>Sexta</option>
+            <option>Sábado</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="grade-legend">
+        <span class="tag tag--livre">Plano Ilimitado</span>
+        <span class="tag tag--avulso">Avulso/Restrito</span>
+      </div>
+    </header>
+
+    <section id="gradeContainer" class="grade-grid" aria-live="polite"></section>
+  </main>
+
+  <div id="footer-slot"></div>
+  <script src="/assets/js/footer.js"></script>
+  <script src="/assets/js/grade.js"></script>
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

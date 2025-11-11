@@ -1,0 +1,423 @@
+/* ===== HEADER BASE ===== */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 30px;
+  background: #000000;
+  position: sticky;
+  top: 0;
+  z-index: 1005;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  transition: padding 1s ease, background 1s ease, box-shadow 1s ease;
+  border-bottom: 2px solid #ff0000;
+  min-height: 70px;
+}
+
+header.scrolled { padding: 10px; }
+
+header .logo { transition: transform 1s ease, font-size 1s ease, text-shadow 1s ease; }
+header.scrolled .logo { transform: scale(1); text-shadow: 0 0 4px #ff0000; }
+
+header.scrolled #TITULO { transform: scale(1); transition: color 1s ease, transform 1s ease; }
+
+/* CORRETO: só estiliza os <h1> e <p> DENTRO do .logo */
+header .logo h1,
+header .logo p { transition: font-size 1s ease; }
+
+header.scrolled .logo h1,
+header.scrolled .logo p { font-size: 1.2rem; }
+
+#TITULO { color: #ff0000; }
+
+#DRAMA{
+  margin: 20px;
+  font-family: "BBH Sans Bartle", sans-serif;
+  font-weight: 500;
+  font-style: italic;
+  color: #ff0000;
+}
+
+.logo { display: flex; align-items: center; gap: 10px; }
+
+.logo h1 {
+  font-family: "Bebas Neue", sans-serif;
+  color: #f5f5f5;
+  font-size: 29px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+}
+
+.logo p {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 16px;
+  color: #eaeaf4;
+  margin-top: 2px;
+}
+
+/* ===== HOVER GLOW ===== */
+header::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid #ff0000;
+  border-radius: 3px;
+  opacity: 0;
+  transition: all 1s ease;
+  pointer-events: none;
+  z-index: 0;              /* fica ATRÁS do conteúdo */
+}
+header:hover h1 { text-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; transform: scale(1.05); }
+header:hover::after { opacity: 1; box-shadow: 0 0 15px #ff0000; }
+
+/* garante que conteúdo do header fica acima do ::after */
+.logo, .main-nav, #menu-toggle { position: relative; z-index: 1; }
+
+/* ===== MENU FIXO DESKTOP ===== */
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+  margin: 0;
+  padding: 0;
+}
+.main-nav li {
+  list-style: none;
+  position: relative;
+  opacity: 0;
+  transform: translateY(8px);
+  animation: navFadeInUp .45s ease forwards;
+}
+.main-nav a {
+  color: #eaeaf4;
+  text-decoration: none;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 23px;
+  position: relative;
+  transition: color 0.3s, transform 0.2s ease;
+}
+.main-nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 3px;
+  bottom: -4px;
+  left: 0;
+  background: #ff0000;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+.main-nav a:hover::after { width: 100%; }
+.main-nav a:hover { transform: translateY(-1px); }
+.main-nav a.ativo { color: #ffffff; }
+.main-nav a.ativo::after { width: 100%; }
+
+@keyframes navFadeInUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== RESPONSIVO (oculta menu fixo) ===== */
+@media (max-width: 1000px) {
+  .main-nav { display: none; }
+  #menu-toggle { display: block; }
+}
+
+/* ===== BOTÃO MENU MOBILE ===== */
+#menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 14px;
+  font-size: 30px;
+  background-color: #000000;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;  /* corrigido 'background' */
+}
+@media (max-width: 1000px) { #menu-toggle { display: block; } }
+#menu-toggle:hover { transform: rotate(90deg) scale(1.1); }
+
+/* ===== MENU LATERAL (MOBILE) ===== */
+#side-menu {
+  position: fixed;
+  top: 0;
+  right: -320px;
+  width: 320px;
+  height: 100%;
+  background: rgba(18,18,24,0.95);
+  backdrop-filter: blur(8px);
+  padding: 40px 20px;
+  transition: right 0.4s ease;
+  z-index: 2000;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+#side-menu.active { right: 0; }
+#side-menu ul {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: flex; flex-direction: column; align-items: center;
+  height: 100%;
+  gap: 25px;
+}
+#side-menu li { opacity: 0; transform: translateX(10px); animation: navFadeInRight .35s ease forwards; }
+#side-menu li a {
+  display: block;
+  font-size: 20px;
+  color: #eaeaf4;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-align: center;
+  transition: color .3s, transform .2s ease, background-color .3s ease, box-shadow .3s ease;
+}
+#side-menu li a:hover {
+  transform: translateY(-1px) scale(1.02);
+  background: rgba(255, 0, 0, 0.08);
+  box-shadow: 0 4px 14px rgba(0,0,0,0.25);
+}
+#side-menu li a.ativo {
+  background: rgba(255, 0, 0, 0.12);
+  box-shadow: inset 0 0 0 1px rgba(255,0,0,0.35);
+}
+@keyframes navFadeInRight {
+  from { opacity: 0; transform: translateX(10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ===== OVERLAY ===== */
+#overlay { display: none; }
+#overlay.active {
+  display: block;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 1000;
+  backdrop-filter: blur(2px);
+}
+
+.logoo img { width: 40px; height: auto; }
+
+/* ====== DROPDOWN COMPACTO E RETO ====== */
+.nav__item--dropdown { position: relative; z-index: 2002; }
+
+.nav__btn {
+  color: #eaeaf4;
+  text-decoration: none;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 23px;
+  text-transform: uppercase;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: color .3s, transform .2s ease;
+}
+.nav__btn:hover {
+  color: #ff4040;
+  text-shadow: 0 0 8px #ff0000;
+  transform: translateY(-1px);
+}
+
+/* Setinha */
+.caret {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #eaeaf4;
+  transition: transform .2s ease;
+}
+.nav__item--dropdown.open .caret { transform: rotate(180deg); }
+
+/* Painel */
+.dropdown--panel {
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  width: 220px;                    /* largura menor */
+  background: #0c0c0f;
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 8px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+  display: none;
+  overflow: hidden;
+  z-index: 2001;
+  animation: ddFade .15s ease forwards;
+  padding: 0;
+}
+.nav__item--dropdown.open .dropdown--panel { display: block; }
+
+/* Faixa vermelha fina no topo */
+.dropdown__bar {
+  height: 2px;
+  background: linear-gradient(90deg, #ff0000, #ff3030);
+}
+
+/* Links */
+.dropdown--panel a {
+  display: block;
+  padding: 8px 14px;              /* mais compacto */
+  color: #eaeaf4;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 15px;
+  transition: background .2s, color .2s;
+}
+.dropdown--panel a + a {
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.dropdown--panel a:hover {
+  background: rgba(255,0,0,0.08);
+  color: #ffffff;
+}
+
+/* Animação */
+@keyframes ddFade {
+  from { opacity: 0; transform: translateY(-3px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+/* ===== Botão "Serviços" com sublinhado vermelho + flecha ===== */
+.nav__item--dropdown { position: relative; }
+
+/* aparência do texto (branco, sem ficar vermelho no hover) */
+.nav__btn{
+  color: #eaeaf4;
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 23px;
+  text-transform: uppercase;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;           /* para o ::after funcionar */
+  padding: 0 2px;               /* espaço lateral mínimo */
+  transition: none;             /* não mudar cor no hover */
+}
+.nav__btn:hover{ color:#eaeaf4; text-shadow:none; transform:none; }
+
+/* barrinha vermelha embaixo do texto */
+.nav__btn::after{
+  content:"";
+  position:absolute;
+  left:0;
+  bottom:-6px;                  /* distancia da linha para o texto */
+  height:3px;
+  width:0;                      /* começa fechada */
+  background:#ff0000;
+  border-radius:2px;
+  transition: width .22s ease;
+}
+
+/* mostrar a linha no hover OU quando o dropdown estiver aberto */
+.nav__btn:hover::after,
+.nav__item--dropdown.open .nav__btn::after{
+  width:100%;
+}
+
+/* flecha branca ao lado do texto */
+.caret{
+  width:0; height:0;
+  border-left:5px solid transparent;
+  border-right:5px solid transparent;
+  border-top:6px solid #eaeaf4; /* flecha branca */
+  transform: translateY(1px);
+  transition: transform .2s ease;
+}
+/* gira a flecha quando abrir */
+.nav__item--dropdown.open .caret{
+  transform: rotate(180deg) translateY(-1px);
+}
+/* ===== remove o fundo preto do botão "Serviços" ===== */
+.nav__btn,
+.nav__btn:focus,
+.nav__btn:active {
+  background: transparent !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+/* mantém a cor e o sublinhado normalmente */
+.nav__btn:hover {
+  color: #eaeaf4;
+  text-shadow: none;
+  transform: none;
+}
+
+/* força o botão a não "puxar" o fundo do header */
+.nav__item--dropdown.open .nav__btn {
+  background: transparent !important;
+}
+
+/* ajusta o alinhamento pra flecha ficar no mesmo baseline */
+.nav__btn {
+  display: inline-flex;
+  align-items: flex-end;
+}
+/* ===== Centraliza a flecha do botão "Serviços" ===== */
+.caret {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 6px solid #eaeaf4; /* cor branca */
+  position: relative;
+  top: -10px;                     /* sobe um pouquinho */
+  transition: transform 0.2s ease, top 0.2s ease;
+}
+
+/* quando abre o menu, gira e mantém no centro */
+.nav__item--dropdown.open .caret {
+  transform: rotate(180deg);
+  top: 1px;
+}
+/* ===== AJUSTE FINAL: dropdown compacto rente ao botão ===== */
+.dropdown--panel {
+  top: calc(100% + 2px);        /* aproxima do botão */
+  background: #0b0b0c;          /* mesmo fundo do header */
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 6px;           /* cantos mais sutis */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  padding: 0;                   /* remove espaço interno */
+  width: 210px;                 /* deixa mais fino */
+}
+
+/* faixinha vermelha mais elegante */
+.dropdown__bar {
+  height: 2px;
+  background: #ff0000;
+}
+
+/* links mais juntos, sem grandes áreas vazias */
+.dropdown--panel a {
+  padding: 7px 12px;
+  font-size: 14.5px;
+  color: #eaeaf4;
+  text-decoration: none;
+  font-family: "Bebas Neue", sans-serif;
+  letter-spacing: .5px;
+  transition: background .2s, color .2s;
+}
+.dropdown--panel a + a {
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+.dropdown--panel a:hover {
+  background: rgba(255,0,0,0.08);
+  color: #ffffff;
+}
+
+/* garante que nada de plano cinza apareça por trás */
+.nav__item--dropdown,
+.nav__btn {
+  background: transparent !important;
+}

@@ -1,0 +1,48 @@
+<header>
+  <div class="logo">
+    <h1 id="TITULO"> | B.A</h1>
+    <h1>Body <br>Action</h1>
+  </div>
+
+  <nav class="main-nav">
+    <ul>
+      <li><a href="/">Home</a></li>
+      <li><a href="/pages/sobre.html">Sobre</a></li>
+
+      <!-- ▼ MENU DROPDOWN DE SERVIÇOS ▼ -->
+      <li class="nav__item nav__item--dropdown" id="dd-servicos">
+        <button class="nav__btn" aria-expanded="false" aria-controls="menu-servicos">
+          Serviços <span class="caret" aria-hidden="true"></span>
+        </button>
+        <div id="menu-servicos" class="dropdown dropdown--panel" role="menu">
+          <div class="dropdown__bar"></div>
+          <a role="menuitem" href="/pages/grade.html">GRADE DE AULAS</a>
+          <a role="menuitem" href="/pages/services.html">SERVIÇOS OFERECIDOS</a>
+          <a role="menuitem" href="/pages/regulamento.html">REGRAS / GUIA DAS AULAS</a>
+        </div>
+      </li>
+      <!-- ▲ FIM DO DROPDOWN -->
+
+      <li><a href="/pages/planos.html">Planos</a></li>
+      <li><a href="/pages/contato.html">Contato</a></li>
+      <li><a href="/pages/conta.html">👤 Conta</a></li>
+    </ul>
+  </nav>
+
+  <button id="menu-toggle" aria-label="Abrir menu">☰</button>
+</header>
+
+<!-- MENU LATERAL (VERSÃO MOBILE) -->
+<nav id="side-menu" aria-label="Navegação móvel">
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/pages/sobre.html">Sobre</a></li>
+    <li><a href="/pages/grade.html">Grade de Aulas</a></li>
+    <li><a href="/pages/services.html">Serviços Oferecidos</a></li>
+    <li><a href="/pages/planos.html">Planos</a></li>
+    <li><a href="/pages/contato.html">Contato</a></li>
+    <li><a href="/pages/conta.html">👤 Conta</a></li>
+  </ul>
+</nav>
+
+<div id="overlay" aria-hidden="true"></div>

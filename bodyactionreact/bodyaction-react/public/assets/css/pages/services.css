@@ -1,0 +1,71 @@
+/* Services Page Styles */
+.cards {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cards h2 {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: var(--primary);
+  box-shadow: 0 15px 40px rgba(227, 6, 19, 0.3);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.card:hover img {
+  transform: scale(1.1);
+}
+
+.card h3 {
+  color: var(--primary);
+  font-size: 1.5rem;
+  padding: 1.5rem 1.5rem 0.5rem;
+  margin: 0;
+}
+
+.card p {
+  color: rgba(255, 255, 255, 0.8);
+  padding: 0 1.5rem 1.5rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .cards {
+    padding: 2rem 1rem;
+  }
+  
+  .cards h2 {
+    font-size: 2rem;
+  }
+  
+  .card-container {
+    grid-template-columns: 1fr;
+  }
+}

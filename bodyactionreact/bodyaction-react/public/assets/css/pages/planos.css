@@ -1,0 +1,129 @@
+/* Planos Page Styles */
+.planos {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.planos h1 {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 3rem;
+  font-size: 2.5rem;
+}
+
+.container-planos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.plano {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.plano:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary);
+  box-shadow: 0 10px 30px rgba(227, 6, 19, 0.3);
+}
+
+.plano.destaque {
+  border: 2px solid var(--primary);
+  background: rgba(227, 6, 19, 0.1);
+  transform: scale(1.05);
+}
+
+.plano h3 {
+  color: var(--primary);
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+}
+
+.plano .legenda {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.plano .preco {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--text);
+  margin: 1.5rem 0;
+}
+
+.plano ul {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0;
+  text-align: left;
+}
+
+.plano ul li {
+  padding: 0.75rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  padding-left: 2rem;
+}
+
+.plano ul li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.plano ul li[data-disponivel="false"] {
+  color: rgba(255, 255, 255, 0.4);
+  text-decoration: line-through;
+}
+
+.plano ul li[data-disponivel="false"]::before {
+  content: "✗";
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.plano .btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 1rem 2.5rem;
+  background: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.plano .btn:hover {
+  background: #ff1a2e;
+  transform: scale(1.05);
+  box-shadow: 0 5px 20px rgba(227, 6, 19, 0.5);
+}
+
+@media (max-width: 768px) {
+  .planos {
+    padding: 2rem 1rem;
+  }
+  
+  .planos h1 {
+    font-size: 2rem;
+  }
+  
+  .container-planos {
+    grid-template-columns: 1fr;
+  }
+  
+  .plano.destaque {
+    transform: scale(1);
+  }
+}

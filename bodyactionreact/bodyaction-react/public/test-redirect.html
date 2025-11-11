@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Redirecionamento</title>
+</head>
+<body>
+    <h1>Teste de Redirecionamento</h1>
+    
+    <button onclick="testRedirectCadastro()">Testar Redirecionamento Cadastro</button>
+    <button onclick="testRedirectLogin()">Testar Redirecionamento Login</button>
+    <button onclick="testRedirectConta()">Testar Redirecionamento Conta</button>
+    
+    <div id="status"></div>
+    
+    <script>
+        function testRedirectCadastro() {
+            document.getElementById('status').innerHTML = 'Redirecionando para cadastro...';
+            setTimeout(() => {
+                window.location.href = '/pages/cadastro.html';
+            }, 1000);
+        }
+        
+        function testRedirectLogin() {
+            document.getElementById('status').innerHTML = 'Redirecionando para login...';
+            setTimeout(() => {
+                window.location.href = '/pages/login.html';
+            }, 1000);
+        }
+        
+        function testRedirectConta() {
+            document.getElementById('status').innerHTML = 'Redirecionando para conta...';
+            setTimeout(() => {
+                window.location.href = '/pages/conta.html';
+            }, 1000);
+        }
+        
+        // Testar se podemos salvar no localStorage
+        try {
+            localStorage.setItem('test', 'works');
+            console.log('✅ localStorage funcionando');
+        } catch(e) {
+            console.error('❌ Erro no localStorage:', e);
+        }
+    </script>
+</body>
+</html>

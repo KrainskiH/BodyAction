@@ -1,0 +1,269 @@
+.cards {
+    text-align: center;
+    padding: 60px 20px;}
+
+.cards h2 {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 36px;
+    margin-bottom: 40px;
+    color: #F5F7FA;}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 25px;}
+
+  /* CARD DE SERVIÇO */
+.card {
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 300px;
+    opacity: 0;
+    animation: slideUp 0.9s forwards;
+  }
+
+.card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+
+  .card h3 {
+    font-family: "Bebas Neue", sans-serif;
+    margin: 15px 0;
+    color: #242424;
+    font-size: 30px;
+  }
+
+  .card p {
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 15px 20px 20px;
+    color: #000000;
+    font-size: 16px;
+  }
+
+  /* CARD DE INSTRUTOR */
+  .cardinstrutor {
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    width: 300px;
+    opacity: 0;
+    transform: translateY(50px);
+    animation: slideUp 0.6s forwards;
+    transition: box-shadow 0.3s;
+  }
+
+  .cardinstrutor img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    transition: transform 0.3s;
+  }
+
+  .cardinstrutor h3 {
+    margin: 15px 0;
+    color: #242424;
+    font-size: 27px;
+    font-family: "Bebas Neue", sans-serif;
+  }
+
+  .cardinstrutor p {
+    padding: 0 15px 20px;
+    color: #222222;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style:initial;
+  }
+
+  /* CARD DE SERVIÇO GRID */
+  .service-card{
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 8px 24px rgba(0,0,0,.12);
+    overflow:hidden;
+    transition:transform .16s ease, box-shadow .16s ease;
+    max-width: 320px;
+    margin: 0 auto;
+  }
+
+  .service-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 32px rgba(0,0,0,.18);
+  }
+
+  .service-thumb{
+    width:100%;
+    height:200px;
+    object-fit:cover;
+    display:block;
+    border-top-left-radius:12px;
+    border-top-right-radius:12px;
+  }
+
+  .service-body{
+    background:#fff;
+    padding:16px 18px 20px;
+    text-align:center;
+  }
+
+  .service-body h3{
+    color:#F5F7FA;
+    font-weight:700;
+    font-size:clamp(16px,1.8vw,20px);
+    margin:10px 0 8px;
+    line-height:1.25;
+  }
+
+  .service-body p{
+    color:#2b2b2b;
+    font-size:14.5px;
+    line-height:1.6;
+    margin:0;}
+    
+.sobre-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 60px 10%;
+  flex-wrap: wrap;
+}
+
+.sobre {
+  flex: 1;
+  min-width: 300px;
+  color: #fff;}
+
+.sobre h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;}
+
+.sobre p {
+  font-size: 1.1rem;
+  line-height: 1.6;}
+
+.carousel {
+  height: 450px;
+  position: relative;
+  flex: 1;
+  min-width: 400px;
+  max-width: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(26,26,26,0.9) 100%);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  height: 100%;
+  width: 100%;
+}
+
+.cardcarrossel {
+  min-width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.cardcarrossel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.cardcarrossel:hover img {
+  transform: scale(1.05);
+}
+
+button.prev, button.next {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  color: #fff;
+  font-size: 2rem;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 3;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button.prev:hover, button.next:hover {
+  background: rgba(255, 0, 0, 0.8);
+  border-color: #ff0000;
+  transform: translateY(-50%) scale(1.1);
+}
+
+button.prev { left: 15px; }
+button.next { right: 15px; }
+
+/* Indicadores de slides */
+.carousel-indicators {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 3;
+}
+
+.carousel-indicators .indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.carousel-indicators .indicator:hover {
+  background: rgba(255, 255, 255, 0.7);
+  transform: scale(1.2);
+}
+
+.carousel-indicators .indicator.active {
+  background: #ff0000;
+  border-color: #ff0000;
+  width: 30px;
+  border-radius: 6px;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .carousel {
+    height: 350px;
+    min-width: 300px;
+  }
+  
+  button.prev, button.next {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+  
+  button.prev { left: 10px; }
+  button.next { right: 10px; }
+}
